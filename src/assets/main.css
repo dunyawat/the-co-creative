@@ -1,0 +1,97 @@
+*{
+    font-family: 'Montserrat', sans-serif;
+}
+
+h2.back-office-header{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    color: #000000;
+}
+
+.btn.btn-add{
+    background: #F0F0F0;
+    border-radius: 0;
+}
+
+.btn.btn-edit{
+    background: #848484;
+    color: white;
+    font-weight: 400;
+    font-size: 12px;
+    border-radius: 0;
+    width: 48%;
+}
+
+.btn.btn-delete{
+    background: #000;
+    color: white;
+    font-weight: 400;
+    font-size: 12px;
+    border-radius: 0;
+    width: 48%;
+}
+
+.b-header{
+    border-bottom: 1px solid #000;
+    border-top: 1px solid #000;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.b-content{
+    font-weight: 400;
+    font-size: 16px;
+}
+
+h2.confirm-delete{
+    font-weight: 700;
+    font-size: 24px;
+    color: #000;
+}
+
+p.detail-delete{
+    font-weight: 400;
+    font-size: 16px;
+    color: #000;
+}
+
+.close-btn{
+    background-color: transparent !important;
+    box-shadow: unset !important;
+}
+
+.confirm-btn{
+    background: #F0F0F0 !important;
+    border-radius: 0!important;
+}
+
+.form-control.input-b,.form-select.input-b{
+    border-radius: 0;
+    border: 1px solid #000000;
+}
+
+.form-control.input-b.text-area-b{
+    height: 150px;
+}
+
+.label-b{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.ck-content{
+    height: 120px;
+}
+.sub-header{
+    font-weight: 400;
+    font-size: 24px;
+    color: #000;
+}
+
+.btn-in-color{
+    cursor: pointer;
+    color: #000;
+}

@@ -1,0 +1,108 @@
+<template>
+    <Navbar />
+    <div class="contact-page">
+    <div class="contact-container">
+        <div class="contact-content px-4" @click="toInquiries()">
+            Client Inquiries
+            <div class="contact-image d-none d-lg-block"><img src="@/assets/images/arrow-large.png" alt=""></div>
+        </div>
+    </div>
+    <div class="contact-container">
+        <div class="contact-content px-4" @click="toCareer()">
+            Career
+            <div class="contact-image d-none d-lg-block"><img src="@/assets/images/arrow-large.png" alt=""></div>
+        </div>
+    </div>
+    </div>
+
+  <Footer />
+</template>
+
+<script>
+import Navbar from '@/components/navbar/Navbar.vue'
+import Footer from '@/components/footer/Footer.vue'
+import { useRouter } from 'vue-router'
+export default {
+    name: 'ContactView',
+    components:{
+        Navbar,
+        Footer
+    },
+    setup(){
+        const router = useRouter()
+        return{
+            router
+        }
+    },
+    methods:{
+        toInquiries(){
+            this.router.push({name:'ClientViewUrl'})
+        },
+        toCareer(){
+            this.router.push({name:'CareerViewUrl'})
+        }
+    }
+}
+</script>
+
+<style>
+.contact-container{
+    border-bottom: 1px solid #000;
+}
+
+.contact-content{
+    padding-top: 70px;
+    padding-bottom: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: "freight-big-pro";
+    letter-spacing: 0px;
+    color: #000000;
+    font-size: 100px;
+    line-height: 110px;
+    transition: all 0.5s ease;
+    cursor: pointer;
+}
+
+.contact-image{
+    opacity: 0;
+    transition: all 0.5s ease;
+}
+
+.contact-content:hover{
+    background-color: #F0F0F0;
+    transition: all 0.5s ease;
+}
+
+.contact-content:hover .contact-image{
+    opacity: 1;
+    transition: all 0.5s ease;
+}
+
+@media (min-width: 1024px) {
+  .about {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+  }
+}
+
+@media (max-width: 767.98px) { 
+    .contact-page{
+        margin-top: 140px;
+        margin-bottom: 250px;
+    }
+
+    .contact-page{
+        border-top: 1px solid #000;
+    }
+
+    .contact-content{
+        font-size: 40px;
+        line-height: 49px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+}
+</style>
