@@ -26,7 +26,7 @@
                     </div>
          
                     <div>
-                        <img class="image-line" src="@/assets/images/line.svg" alt="logo">
+                        <img class="image-line" src="@/assets/images/line-new.svg" alt="logo">
                         <img src="@/assets/images/arrow.svg" style="margin-left:-12px; margin-right:5px" alt="logo">
                         NEW CLIENT INQUIRIES
                     </div>
