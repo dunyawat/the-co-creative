@@ -390,6 +390,10 @@
     cursor: pointer;
 }
 
+.recent-product:hover{
+  opacity: 0.75;
+}
+
 
 .view-more-project{
   padding-bottom: 68px;

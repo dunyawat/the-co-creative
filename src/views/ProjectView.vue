@@ -293,6 +293,11 @@ import {useStore} from 'vuex'
 
 .product-card{
   cursor: pointer;
+  transition: all .5s ease;
+}
+
+.product-card:hover{
+  opacity: 0.75;
 }
 
 .select-header img{

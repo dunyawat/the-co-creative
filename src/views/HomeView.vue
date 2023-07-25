@@ -305,4 +305,14 @@ import { useRouter } from 'vue-router'
     }
   }
 }
+
+.product-card{
+  transition: all .5s ease;
+}
+
+.product-card:hover{
+  cursor: pointer;
+  opacity: .75;
+}
+
 </style>

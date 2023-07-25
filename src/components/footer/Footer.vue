@@ -25,8 +25,9 @@
                         PLEASE REACH OUT FOR WORK INQUIRIES.
                     </div>
          
-                    <div>
+                    <div class="line-hover">
                         <img class="image-line" src="@/assets/images/line-new.svg" alt="logo">
+                        <img class="image-line-long" src="@/assets/images/long.png" alt="logo">
                         <img src="@/assets/images/arrow.svg" style="margin-left:-12px; margin-right:5px" alt="logo">
                         NEW CLIENT INQUIRIES
                     </div>
@@ -86,5 +87,18 @@ export default {
         }
     }
 
+    .line-hover .image-line-long{
+        display: none;
+    }
+    .line-hover:hover  {
+        cursor: pointer;
+    }
+    .line-hover:hover .image-line-long{
+        display: inline;
+    }
+
+    .line-hover:hover .image-line{
+        display: none;
+    }
 
 </style>

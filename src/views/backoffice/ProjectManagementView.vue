@@ -174,7 +174,7 @@
          <div class="mb-5">
             <div class="sub-header py-3">Credit</div>
             <div class="border-b py-3" v-for="(credit,index) in projectCredit" :key="index">
-                <div class="row m-0">
+                <!-- <div class="row m-0">
                     <div class="col-6 p-0">
                        <div class="form-group mb-3">
                             <label for="sectionColorCredit">Color*</label>
@@ -185,7 +185,7 @@
                             </select>
                         </div>
                     </div>
-                </div>
+                </div> -->
                   <div class="row m-0">
                 <div class="col-6 p-0">
                     <div class="form-group mb-2">
@@ -312,10 +312,10 @@
                 this.projectDescription = this.project.description
                 this.projectBannerStyle = this.project.style
                 let imageSection =  this.project.image
-                const imageFile =  await imageSection.replace('http://localhost:3001/images/','');
+                const imageFile =  await imageSection.replace('https://the-cp-server.onrender.com/images/','');
                 this.projectImage = imageFile
                 let imageDisplaySection =  this.project.image_display
-                const imageDisplayFile =  await imageDisplaySection .replace('http://localhost:3001/images/','');
+                const imageDisplayFile =  await imageDisplaySection .replace('https://the-cp-server.onrender.com/images/','');
                 this.projectImageDisplay = imageDisplayFile
             }
             await this.store.dispatch(PUSH_TAGS)
@@ -409,7 +409,7 @@
                 const sectionTextData = {
                     details:"",
                     header:"",
-                    image:"http://localhost:3001/images/null",
+                    image:"https://the-cp-server.onrender.com/images/null",
                     section_type:"text",
                     theme:"blackBgWhite",
                     image64:null,

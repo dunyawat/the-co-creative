@@ -43,7 +43,7 @@
     <div class="client">
       <div class="client-header px-4">SELECTED CLIENTS</div>
       <div class="row m-0 px-4 px-lg-0" id="client-container">
-        <div class="col-lg-3 px-lg-4 px-0 py-2 client-detail" v-for="project in projects" :key="project">
+        <div class="col-lg-3 px-lg-4 px-0 py-2 client-detail" v-for="project in projects" :key="project" @click="toProjectDetail(project.id)">
           {{ project.name }}
         </div>
       </div>
@@ -57,6 +57,7 @@ import Footer from '@/components/footer/Footer.vue'
 import { ref, computed } from 'vue';
 import {useStore} from 'vuex'
 import { PUSH_PROJECTS,GETTER_PROJECTS,GETTER_TAGS,PUSH_TAGS, PUSH_STAFFS,GETTER_STAFFS} from '@/store/constants'
+import { useRouter } from 'vue-router'
 export default {
   name: 'AboutUsView',
   components:{
@@ -68,11 +69,13 @@ export default {
     const tags = computed(()=> store.getters[GETTER_TAGS])
     const staffs = computed(()=> store.getters[GETTER_STAFFS])
     const projects = computed(()=> store.getters[GETTER_PROJECTS])
+    const router = useRouter()
     return {
       store,
       tags,
       staffs,
-      projects
+      projects,
+      router
     }
   },
   async mounted(){
@@ -108,6 +111,9 @@ export default {
           </div>
         `)
       }
+    },
+     toProjectDetail(projectId){
+      this.router.push({name:'ProjectDetailViewUrl',params:{id:projectId}})
     }
   }
 }
@@ -298,6 +304,10 @@ export default {
   }
 }
 
+
+.client-detail{
+  cursor: pointer;
+}
 
 
 </style>
