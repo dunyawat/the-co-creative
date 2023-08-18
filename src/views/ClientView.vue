@@ -1,6 +1,6 @@
 <template>
 <div>
-  <Navbar />
+  <Navbar :callbackMobile="toProject"/>
     <h1 class="inquiries-header px-4">Client Inquiries</h1>
     <div class="px-4">
       <div class="row m-0">
@@ -180,7 +180,10 @@ export default {
       }
 
       console.log(dataForm)
-    }
+    },
+      toProject(tag){
+            this.router.push({name:'ProjectView',query:{tag:tag}})
+          },
   }
 }
 </script>

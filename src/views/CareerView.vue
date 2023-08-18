@@ -77,6 +77,11 @@ export default {
   },
   async mounted(){
     await this.store.dispatch(PUSH_CAREERS)
+  },
+  methods:{
+    toProject(tag){
+          this.router.push({name:'ProjectView',query:{tag:tag}})
+    },
   }
 }
 </script>
@@ -238,5 +243,6 @@ export default {
 .accordion-button:hover .fa-chevron-up{
   opacity: 1;
 }
+
 
 </style>

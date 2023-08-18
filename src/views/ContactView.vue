@@ -1,6 +1,6 @@
 <template>
 <div>
-    <Navbar />
+    <Navbar :callbackMobile="toProject" />
     <div class="contact-page">
     <div class="contact-container">
         <div class="contact-content px-4" @click="toInquiries()">
@@ -43,7 +43,11 @@ export default {
         },
         toCareer(){
             this.router.push({name:'CareerViewUrl'})
-        }
+        },
+          toProject(tag){
+            this.router.push({name:'ProjectView',query:{tag:tag}})
+          },
+
     }
 }
 </script>

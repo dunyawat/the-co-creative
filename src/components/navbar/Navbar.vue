@@ -48,6 +48,9 @@
                             <div class="d-flex align-items-center back-project" @click="projectList = false">
                                 <img class="me-2" src="@/assets/images/back.png"  alt="back"> PRODUCT
                             </div>
+                            <div class="px-4 text-center back-project-text" @click="executeMobile('All Services')"> 
+                                All Services
+                            </div>
                             <div class="px-4 text-center back-project-text" v-for="tag in tags" :key="tag" @click="executeMobile(tag.name)"> 
                                 {{tag.name}}
                             </div>

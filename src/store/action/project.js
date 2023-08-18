@@ -50,10 +50,23 @@ const project_actions = {
         }
     },
     [PUSH_PROJECTS_FILTER]:async(context,tag)=>{
-        const projects = await getProjectsFilter(tag)
-        if(projects){
-            context.commit(ADD_PROJECTS_STATE,projects)
+        console.log(tag.tag)
+        if(tag.tag == 'All Services'){
+            console.log("afds;mgfda;lfm")
+            const projects = await getProjects()
+            if(projects){
+                context.commit(ADD_PROJECTS_STATE,projects)
+            }
+        } else {
+            console.log("fsadfasdfas")
+            const projects = await getProjectsFilter(tag)
+            if(projects){
+                context.commit(ADD_PROJECTS_STATE,projects)
+            }
         }
+    
+
+ 
     }
 }
 

@@ -1,6 +1,6 @@
 <template>
 <div>
-    <Navbar />
+    <Navbar :callbackMobile="toProject" />
     <div class="header-about px-4">
       <div class="row m-0">
         <div class="col-md-4 p-0 about-header-name">
@@ -117,7 +117,10 @@ export default {
     },
      toProjectDetail(projectId){
       this.router.push({name:'ProjectDetailViewUrl',params:{id:projectId}})
-    }
+    },
+      toProject(tag){
+            this.router.push({name:'ProjectView',query:{tag:tag}})
+          },
   }
 }
 </script>

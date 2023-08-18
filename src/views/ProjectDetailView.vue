@@ -1,6 +1,6 @@
 <template>
   <div id="product-detail">
-     <Navbar />
+     <Navbar :callbackMobile="toProject" />
     <div class="banner-project">
       <img v-if="project" :src="project.image" crossorigin="anonymous" alt="">
       <div v-if="project">
@@ -259,8 +259,9 @@
    
             await this.trigermatchProject()
             await this.sortMatch()
-  
-        
+          },
+          toProject(tag){
+            this.router.push({name:'ProjectView',query:{tag:tag}})
           },
         }
     }

@@ -1,6 +1,6 @@
 <template>
 <div>
-    <Navbar  />
+    <Navbar :callbackMobile="toProject" />
     <div class="px-4 home-detail">
     At The Co-Creative — We are a group of young creative specialized in 
     <span>branding, marketing & online strategy.</span> We work closely with brand to 

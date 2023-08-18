@@ -6,8 +6,11 @@
         <div class="tag-select-container d-block d-lg-none">
           <div :class="openSelected ? 'select-header open' : 'select-header'" @click="openSelect">{{selectMobile}} <img src="@/assets/images/tag-select.svg" alt=""></div>
           <ul class="p-0" v-if="openSelected">
+              <li class="tag-select px-0" @click="filterProjectMobile('All Services')">
+                All Services
+              </li>
               <li v-for="tag in tags" :key="tag" class="tag-select px-0" @click="filterProjectMobile(tag.name)">
-              {{tag.name}}
+                {{tag.name}}
               </li>
           </ul>
       </div>
