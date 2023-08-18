@@ -306,7 +306,7 @@ export default {
 .project-view-tag{
     left: 0;
     background: white;
-    top: 77px;
+    top: 78px;
     z-index: 1000;
     width: 100%;
     position: absolute;
