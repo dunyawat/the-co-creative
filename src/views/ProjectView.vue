@@ -1,24 +1,20 @@
 <template>
-  <Navbar />
+<div>
+  <Navbar :callback="filterProject" :callbackMobile="filterProjectMobile" />
   <div class="modal-selected" v-if="modalSelected"></div>
-  <div class="tag-container project-view-tag mb-5 px-4 px-lg-0">
-    <div class="row m-0 d-none d-lg-flex">
-      <div class="col-lg-4 px-4 tag-item" v-for="tag in tags" :key="tag" @click="filterProject(tag.name)"> 
-        {{tag.name}}
+   <div class="tag-container project-view-tag px-4">
+        <div class="tag-select-container d-block d-lg-none">
+          <div :class="openSelected ? 'select-header open' : 'select-header'" @click="openSelect">{{selectMobile}} <img src="@/assets/images/tag-select.svg" alt=""></div>
+          <ul class="p-0" v-if="openSelected">
+              <li v-for="tag in tags" :key="tag" class="tag-select px-0" @click="filterProjectMobile(tag.name)">
+              {{tag.name}}
+              </li>
+          </ul>
       </div>
-      <div class="tag-last-line d-none d-lg-block"></div>
-    </div>
-    <div class="tag-select-container d-block d-lg-none">
-      <div :class="openSelected ? 'select-header open' : 'select-header'" @click="openSelect">{{selectMobile}} <img src="@/assets/images/tag-select.svg" alt=""></div>
-      <ul class="p-0" v-if="openSelected">
-        <li v-for="tag in tags" :key="tag" class="tag-select px-0" @click="filterProjectMobile(tag.name)">
-          {{tag.name}}
-        </li>
-      </ul>
-    </div>
-  </div>
-   <div class="project-list-view px-4" v-if="projects.length">
-    <div class="product-card" >
+   </div>
+
+   <div class="project-list-view px-4 mt-5 row m-0" v-if="projects.length">
+    <div class="product-card col-lg-4 p-0 pe-lg-2">
       <div v-for="project in productElementOne" :key="project.id" @click="toProjectDetail(project.id)">
         <div>
           <img crossorigin="anonymous" :src="project.image_display" alt="">
@@ -33,7 +29,7 @@
         </div>
       </div>
     </div>
-     <div class="product-card" >
+     <div class="product-card col-lg-4 p-0 ps-lg-1 pe-lg-1">
       <div v-for="project in productElementTwo" :key="project.id" @click="toProjectDetail(project.id)">
         <img crossorigin="anonymous" :src="project.image_display" alt="">
         <div class="d-flex justify-content-between project-detail">
@@ -46,7 +42,7 @@
           </div>
       </div>
     </div>
-     <div class="product-card" >
+     <div class="product-card col-lg-4 p-0 ps-lg-2">
       <div v-for="project in productElementThree" :key="project.id" @click="toProjectDetail(project.id)">
         <img crossorigin="anonymous" :src="project.image_display" alt="">
         <div class="d-flex justify-content-between project-detail">
@@ -63,6 +59,7 @@
   <div v-else class="px-4">
       No data
   </div>
+</div>
   <Footer />
 </template>
 
@@ -71,7 +68,7 @@ import Navbar from '@/components/navbar/Navbar.vue'
 import Footer from '@/components/footer/Footer.vue'
 import { ref, computed } from 'vue';
 import { RouterLink,useRouter, useRoute  } from 'vue-router'
-import { PUSH_PROJECTS,GETTER_PROJECTS,PUSH_PROJECTS_FILTER,GETTER_TAGS,PUSH_TAGS,CLEAR_STATE_PROJECT} from '@/store/constants'
+import { FALSE_DROPDOWN,PUSH_PROJECTS,GETTER_PROJECTS,PUSH_PROJECTS_FILTER,GETTER_TAGS,PUSH_TAGS,CLEAR_STATE_PROJECT,GETTER_DROPDOWN} from '@/store/constants'
 import {useStore} from 'vuex'
 
   export default {
@@ -85,6 +82,7 @@ import {useStore} from 'vuex'
           const tagParam = ref(route.query.tag)
           const store = useStore()
           const projects = computed(()=> store.getters[GETTER_PROJECTS])
+          const dropdown = computed(()=> store.getters[GETTER_DROPDOWN])
           const productElementOne = ref([])
           const productElementTwo = ref([])
           const productElementThree = ref([])
@@ -105,10 +103,12 @@ import {useStore} from 'vuex'
             selectMobile,
             openSelected,
             modalSelected,
+            dropdown
           }
         },
 
         async mounted(){
+          this.store.commit(FALSE_DROPDOWN)
           this.store.commit(CLEAR_STATE_PROJECT)
           if(this.tagParam){
             await this.store.dispatch(PUSH_PROJECTS_FILTER,{tag:this.tagParam})
@@ -164,7 +164,7 @@ import {useStore} from 'vuex'
           },
           openSelect(){
             this.openSelected = !this.openSelected
-          }
+          },
         }
     }
 
@@ -186,7 +186,7 @@ import {useStore} from 'vuex'
 }
 
 .project-list-view{
-  grid-column-gap: 24px;
+  grid-column-gap: 0px !important;
   align-items: start;
   display: grid;
   grid-template-columns: repeat(3,minmax(0,1fr));
@@ -199,7 +199,7 @@ import {useStore} from 'vuex'
 .product-card{
   display: grid;
   grid-template-columns: minmax(0,1fr);
-  row-gap: 24px;
+  row-gap: 60px;
 }
 
 </style>
@@ -262,6 +262,7 @@ import {useStore} from 'vuex'
   font-size: 50px;
   color: black;
   font-family: "freight-big-pro";
+  line-height: 60px;
 }
 
 

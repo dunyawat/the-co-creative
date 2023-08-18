@@ -117,14 +117,16 @@
         </div>
       </div>
     </div>
-    <div class="px-4 credit-container" v-if="project">
-      <div v-if="project.credit.length">
-        <div class="row m-0">
-          <div class="col-lg-8 col-md-6 p-0"></div>
-          <div class="col-lg-1 col-md-2 p-0 credit-header">CREDIT</div>
-          <div class="col-lg-3 col-md-4 p-0 credit-detail">
-            <div v-for="credit in project.credit" :key="credit">
-              <span class="credit-name">{{ credit.name }} </span> <span class="credit-position">{{credit.position_1}}</span>
+    <div v-if="project">
+      <div :class="project.credit[0].credit_type + ' px-4 pt-3 credit-container'" v-if="project.credit.length">
+        <div v-if="project.credit.length">
+          <div class="row m-0">
+            <div class="col-lg-8 col-md-6 p-0"></div>
+            <div class="col-lg-1 col-md-2 p-0 credit-header">CREDIT</div>
+            <div class="col-lg-3 col-md-4 p-0 credit-detail">
+              <div v-for="credit in project.credit" :key="credit">
+                <span class="credit-name">{{ credit.name }} </span> <span class="credit-position">{{credit.position_1}}</span>
+              </div>
             </div>
           </div>
         </div>
@@ -140,8 +142,8 @@
         </div>
       </div>
     </div>
-  <Footer />
   </div>
+    <Footer />
 </template>
 
 <script>
@@ -265,6 +267,20 @@
 
 </script>
 
+<style scoped>
+  .blackBgGray{
+    background-color: #F0F0F0;
+  }
+  .whiteBgBlack {
+      background-color: black;
+  }
+
+  .whiteBgBlack .credit-header,.whiteBgBlack .credit-name{
+      color: white;
+  }
+
+</style>
+
 <style>
 .ck input.ck-input.ck-input-text {
     transition: .2s ease-in-out;
@@ -299,6 +315,7 @@
   width: 100%;
   font-size: 18px;
   line-height: 22px;
+  color: #000;
 }
 
 .product-main.light .product-header{
@@ -438,16 +455,16 @@
     padding-bottom: 30px;
   }
 
-  .product-main{
-    position: static;
-    top: 0;
-    left: 0;
-    width: 100%;
-    font-size: 13px;
-    line-height: 22px;
-  }
+.product-main{
+  position: static;
+  top: 0;
+  left: 0;
+  width: 100%;
+  font-size: 13px;
+  line-height: 22px;
+}
 
-  .product-main.light .product-header{
+.product-main.light .product-header{
   border-bottom: 1px solid #000;
 }
 
@@ -455,12 +472,12 @@
   color: #000;
 }
 
-.product-main.light  .product-detail a{
+.product-main.light .product-detail a{
   color: #000;
 }
 
 
-.product-main.light   .product-detail a:hover{
+.product-main.light .product-detail a:hover{
   color: #000;
   text-decoration: underline;
 }

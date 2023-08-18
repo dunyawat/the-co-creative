@@ -173,37 +173,37 @@
         </div>
          <div class="mb-5">
             <div class="sub-header py-3">Credit</div>
-            <div class="border-b py-3" v-for="(credit,index) in projectCredit" :key="index">
-                <!-- <div class="row m-0">
-                    <div class="col-6 p-0">
-                       <div class="form-group mb-3">
+              <div class="row m-0">
+                <div class="col-6 p-0">
+                        <div class="form-group mb-3">
                             <label for="sectionColorCredit">Color*</label>
-                            <select class="form-select input-b" name="sectionColorCredit" v-model="credit.credit_type">
+                            <select class="form-select input-b" name="sectionColorCredit" v-model="creditType" @change="changeCredit">
                                 <option value="blackBgGray">Black text - Grey background</option>
                                 <option value="blackBgWhite">Black text - White background</option>
                                 <option value="whiteBgBlack">White text - Black background</option>
                             </select>
                         </div>
                     </div>
-                </div> -->
-                  <div class="row m-0">
-                <div class="col-6 p-0">
-                    <div class="form-group mb-2">
-                        <label class="label-b" :for="credit.name">Name</label>
-                        <input class="form-control input-b" required type="text" :name="credit.name" :id="credit.name"  v-model="credit.name">
+                </div>
+            <div class="border-b py-3" v-for="(credit,index) in projectCredit" :key="index">
+                <div class="row m-0">
+                    <div class="col-6 p-0">
+                        <div class="form-group mb-2">
+                            <label class="label-b" :for="credit.name">Name</label>
+                            <input class="form-control input-b" required type="text" :name="credit.name" :id="credit.name"  v-model="credit.name">
+                        </div>
+                    </div>
+                    <div class="col-5 p-0 ps-3">
+                        <div class="form-group mb-2">
+                            <label class="label-b" :for="credit.position_1">Position</label>
+                            <input class="form-control input-b" required type="text" :name="credit.position_1" :id="credit.position_1" v-model="credit.position_1">
+                        </div>
+                    </div>
+                        <div class="col-1 mt-4 pt-2" @click="deleteCredit(index)">
+                            <MDBIcon icon="trash" iconStyle="fas" size="2x" />
+                        </div>
                     </div>
                 </div>
-                 <div class="col-5 p-0 ps-3">
-                    <div class="form-group mb-2">
-                        <label class="label-b" :for="credit.position_1">Position</label>
-                        <input class="form-control input-b" required type="text" :name="credit.position_1" :id="credit.position_1" v-model="credit.position_1">
-                    </div>
-                </div>
-                    <div class="col-1 mt-4 pt-2" @click="deleteCredit(index)">
-                        <MDBIcon icon="trash" iconStyle="fas" size="2x" />
-                    </div>
-                </div>
-            </div>
             <div>
                 <a @click="addMoreCredit" class="btn-in-color"><MDBIcon icon="plus" iconStyle="fas" size="1x" /> Add more credit</a>
             </div>
@@ -238,6 +238,7 @@
         GETTER_TEXT_CHECK,
         DELETE_SECTION,
         MOVE_SECTION,
+        TRIGGER_CREDIT_TYPE,
     } from '@/store/constants'
     import {useStore} from 'vuex'
     import NavbarBackOffice from '@/components/backoffice/NavbarBackOffice.vue'
@@ -273,6 +274,7 @@
             const updateImageDisplay = ref(false)
             const dropdown2 = ref(false)
             const checkTag = computed(()=> store.getters[GETTER_TEXT_CHECK])
+            const creditType = ref('blackBgGray')
             return {
                 token,
                 id,
@@ -298,6 +300,7 @@
                 updateImageDisplay,
                 dropdown2,
                 checkTag,
+                creditType
             }
         },
         async mounted(){
@@ -317,6 +320,9 @@
                 let imageDisplaySection =  this.project.image_display
                 const imageDisplayFile =  await imageDisplaySection .replace('https://the-cp-server.onrender.com/images/','');
                 this.projectImageDisplay = imageDisplayFile
+                if(this.project.credit){
+                    this.creditType = this.project.credit[0].credit_type
+                }
             }
             await this.store.dispatch(PUSH_TAGS)
             this.projectTag = this.project ? this.project.tag ? this.project.tag : null : null
@@ -328,7 +334,7 @@
                 this.store.commit(CREATE_LINK)
             },
             addMoreCredit(){
-                this.store.commit(CREATE_CREDIT)
+                this.store.commit(CREATE_CREDIT,this.creditType)
             },
             test(){
                 console.log(this.projectLink)
@@ -395,7 +401,6 @@
                 console.log(checkboxs)
                 checkboxs.forEach(checkbox=>{
                     if(checkbox.checked){
-                     
                         this.confirmTag.push(checkbox.value)
                     }
                 })
@@ -559,6 +564,10 @@
                     newIndex :newIndex
                 }
                 this.store.commit(MOVE_SECTION,payload)
+            },
+
+            async changeCredit(){
+                await this.store.commit(TRIGGER_CREDIT_TYPE,this.creditType)
             }
         }
     }

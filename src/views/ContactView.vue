@@ -1,19 +1,22 @@
 <template>
+<div>
     <Navbar />
     <div class="contact-page">
     <div class="contact-container">
         <div class="contact-content px-4" @click="toInquiries()">
             Client Inquiries
-            <div class="contact-image d-none d-lg-block"><img src="@/assets/images/arrow-large.png" alt=""></div>
+            <div class="contact-image d-none d-lg-block"><img src="@/assets/images/arrow-new.svg" alt=""></div>
         </div>
     </div>
     <div class="contact-container">
         <div class="contact-content px-4" @click="toCareer()">
             Career
-            <div class="contact-image d-none d-lg-block"><img src="@/assets/images/arrow-large.png" alt=""></div>
+            <div class="contact-image d-none d-lg-block"><img src="@/assets/images/arrow-new.svg" alt=""></div>
         </div>
     </div>
     </div>
+</div>
+
 
   <Footer />
 </template>

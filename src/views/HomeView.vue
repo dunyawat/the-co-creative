@@ -1,5 +1,6 @@
 <template>
-  <Navbar />
+<div>
+    <Navbar  />
     <div class="px-4 home-detail">
     At The Co-Creative — We are a group of young creative specialized in 
     <span>branding, marketing & online strategy.</span> We work closely with brand to 
@@ -8,9 +9,9 @@
     Our strengths is that we offer you 
     <span> one stop service </span> and we are thriving to push this industry forward.
   </div>
-  <div class="tag-container mb-5 mt-md-5 px-4 px-md-0">
+  <div class="tag-container mb-5 mt-md-5 px-4 px-md-4">
     <div class="row m-0">
-      <div class="col-lg-4 px-0 px-md-4 tag-item" v-for="tag in tags" :key="tag" @click="toProject(tag.name)"> 
+      <div class="col-lg-4 px-0 tag-item" v-for="tag in tags" :key="tag" @click="toProject(tag.name)"> 
         {{tag.name}}
       </div>
       <div class="tag-last-line"></div>
@@ -21,8 +22,8 @@
     <img class="w-100" src="@/assets/images/logo-big.png" alt="logo">
   </div>
   
-  <div class="project-list-view px-4">
-    <div class="product-card d-none d-md-grid">
+  <div class="project-list-view px-4 row m-0">
+    <div class="product-card d-none col-lg-4 p-0 pe-lg-2 d-md-grid">
       <div v-for="project in productElementOne" :key="project.id" @click="toProjectDetail(project.id)">
         <div>
           <img crossorigin="anonymous" :src="project.image_display" alt="">
@@ -37,7 +38,7 @@
         </div>
       </div>
     </div>
-     <div class="product-card d-none d-md-grid">
+     <div class="product-card col-lg-4 p-0 ps-lg-1 pe-lg-1 d-none d-md-grid">
       <div v-for="project in productElementTwo" :key="project.id" @click="toProjectDetail(project.id)">
         <img crossorigin="anonymous" :src="project.image_display" alt="">
         <div class="d-flex justify-content-between project-detail">
@@ -50,7 +51,7 @@
           </div>
       </div>
     </div>
-     <div class="product-card d-none d-md-grid">
+     <div class="product-card d-none d-md-grid col-lg-4 p-0 ps-lg-2">
       <div v-for="project in productElementThree" :key="project.id" @click="toProjectDetail(project.id)">
         <img crossorigin="anonymous" :src="project.image_display" alt="">
         <div class="d-flex justify-content-between project-detail">
@@ -64,7 +65,7 @@
       </div>
     </div>
 
-    <div class="product-card-mobile d-block d-md-none w-100">
+    <div class="product-card-mobile d-block d-md-none w-100 p-0">
       <div v-for="project in projects" :key="project.id" @click="toProjectDetail(project.id)">
         <img crossorigin="anonymous" :src="project.image_display" alt="">
         <div class="d-md-flex justify-content-between project-detail">
@@ -78,6 +79,8 @@
       </div>
     </div>
   </div>
+</div>
+
   <Footer />
 </template>
 
@@ -177,7 +180,7 @@ import { useRouter } from 'vue-router'
 .product-card{
   display: grid;
   grid-template-columns: minmax(0,1fr);
-  row-gap: 24px;
+  row-gap: 60px;
 }
 
 </style>
@@ -240,6 +243,7 @@ import { useRouter } from 'vue-router'
   font-size: 50px;
   color: black;
   font-family: "freight-big-pro";
+  line-height: 60px;
 }
 
 

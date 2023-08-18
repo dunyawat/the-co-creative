@@ -17,7 +17,10 @@ import {
     DELETE_SECTION,
     MOVE_SECTION,
     CLEAR_STATE_PROJECT,
-    ADD_MATCH_PROJECT
+    ADD_MATCH_PROJECT,
+    TRIGGER_DROPDOWN,
+    FALSE_DROPDOWN,
+    TRIGGER_CREDIT_TYPE
 } from '@/store/constants'
 
 
@@ -65,9 +68,9 @@ const mutations = {
     [DELETE_CREDIT](state,payload){
         state.projectCredit.splice(payload, 1)
     },
-    [CREATE_CREDIT](state){
+    [CREATE_CREDIT](state,type){
         state.projectCredit.push({
-            credit_type:"blackBgGray",
+            credit_type: type,
             name:"",
             position_1:"",
             position_2:"",
@@ -94,6 +97,17 @@ const mutations = {
     },
     [ADD_MATCH_PROJECT](state,payload){
         state.matchProject = payload
+    },
+    [TRIGGER_DROPDOWN](state){
+        state.projectDropdown = !state.projectDropdown
+    },
+    [FALSE_DROPDOWN](state){
+        state.projectDropdown = false
+    },
+    [TRIGGER_CREDIT_TYPE](state,type){
+        state.projectCredit.forEach(element => {
+                element.credit_type = type
+        });
     }
 }
 

@@ -2,6 +2,13 @@
     font-family: 'Montserrat', sans-serif;
 }
 
+#id{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+}
+
 h2.back-office-header{
     font-style: normal;
     font-weight: 700;
@@ -95,3 +102,170 @@ p.detail-delete{
     cursor: pointer;
     color: #000;
 }
+
+@media (min-width: 991.98px) {
+    .tag-item.px-0.px-md-4:nth-child(2),
+    .tag-item.px-0.px-md-4:nth-child(3),
+    .tag-item.px-0.px-md-4:nth-child(5),
+    .tag-item.px-0.px-md-4:nth-child(6),
+    .tag-item.px-0.px-md-4:nth-child(8),
+    .tag-item.px-0.px-md-4:nth-child(9),
+    .tag-item.px-0.px-md-4:nth-child(11),
+    .tag-item.px-0.px-md-4:nth-child(12),
+    .tag-item.px-0.px-md-4:nth-child(14),
+    .tag-item.px-0.px-md-4:nth-child(15),
+    .tag-item.px-0.px-md-4:nth-child(17),
+    .tag-item.px-0.px-md-4:nth-child(18),
+    .tag-item.px-0.px-md-4:nth-child(20),
+    .tag-item.px-0.px-md-4:nth-child(21),
+    .tag-item.px-0.px-md-4:nth-child(23),
+    .tag-item.px-0.px-md-4:nth-child(24)
+    {
+        padding-left: 0 !important;
+    }
+    .tag-item.px-4:nth-child(2),
+    .tag-item.px-4:nth-child(5),
+    .tag-item.px-4:nth-child(8),
+    .tag-item.px-4:nth-child(11),
+    .tag-item.px-4:nth-child(14),
+    .tag-item.px-4:nth-child(17),
+    .tag-item.px-4:nth-child(20),
+    .tag-item.px-4:nth-child(23)
+    {
+        padding-left: 0.25rem !important;
+        padding-right: 0.25rem !important;
+    }
+    .tag-item.px-4:nth-child(1),
+    .tag-item.px-4:nth-child(4),
+    .tag-item.px-4:nth-child(7),
+    .tag-item.px-4:nth-child(10),
+    .tag-item.px-4:nth-child(13),
+    .tag-item.px-4:nth-child(16),
+    .tag-item.px-4:nth-child(19),
+    .tag-item.px-4:nth-child(22)
+    {
+        padding-left: 0 !important;
+    }
+
+    .tag-item.px-4:nth-child(3),
+    .tag-item.px-4:nth-child(6),
+    .tag-item.px-4:nth-child(9),
+    .tag-item.px-4:nth-child(12),
+    .tag-item.px-4:nth-child(15),
+    .tag-item.px-4:nth-child(18),
+    .tag-item.px-4:nth-child(21),
+    .tag-item.px-4:nth-child(24)
+    {
+        padding-left: 0.5rem !important;
+    }
+
+    #tag-about .col-md-4.p-0:nth-child(2) .header-tag.px-0.py-2,
+    #tag-about .col-md-4.p-0:nth-child(5) .header-tag.px-0.py-2,
+    #tag-about .col-md-4.p-0:nth-child(8) .header-tag.px-0.py-2,
+    #tag-about .col-md-4.p-0:nth-child(11) .header-tag.px-0.py-2,
+    #tag-about .col-md-4.p-0:nth-child(14) .header-tag.px-0.py-2,
+    #tag-about .col-md-4.p-0:nth-child(17) .header-tag.px-0.py-2,
+    #tag-about .col-md-4.p-0:nth-child(20) .header-tag.px-0.py-2,
+    #tag-about .col-md-4.p-0:nth-child(23) .header-tag.px-0.py-2
+    {
+        padding-left: 0.25rem !important;
+        padding-right: 0.25rem !important;
+    }
+
+    #tag-about .col-md-4.p-0:nth-child(2) .des-tag,
+    #tag-about .col-md-4.p-0:nth-child(5) .des-tag,
+    #tag-about .col-md-4.p-0:nth-child(8) .des-tag,
+    #tag-about .col-md-4.p-0:nth-child(11) .des-tag,
+    #tag-about .col-md-4.p-0:nth-child(14) .des-tag,
+    #tag-about .col-md-4.p-0:nth-child(17) .des-tag,
+    #tag-about .col-md-4.p-0:nth-child(20) .des-tag,
+    #tag-about .col-md-4.p-0:nth-child(23) .des-tag
+    {
+        padding-left: 0.25rem !important;
+    }
+
+    #tag-about .col-md-4.p-0:nth-child(3) .des-tag,
+    #tag-about .col-md-4.p-0:nth-child(6) .des-tag,
+    #tag-about .col-md-4.p-0:nth-child(9) .des-tag,
+    #tag-about .col-md-4.p-0:nth-child(12) .des-tag,
+    #tag-about .col-md-4.p-0:nth-child(15) .des-tag,
+    #tag-about .col-md-4.p-0:nth-child(18) .des-tag,
+    #tag-about .col-md-4.p-0:nth-child(21) .des-tag,
+    #tag-about .col-md-4.p-0:nth-child(24) .des-tag
+    {
+        padding-left: 0.5rem !important;
+    }
+
+    #tag-about .col-md-4.p-0:nth-child(3) .header-tag.px-0.py-2,
+    #tag-about .col-md-4.p-0:nth-child(6) .header-tag.px-0.py-2,
+    #tag-about .col-md-4.p-0:nth-child(9) .header-tag.px-0.py-2,
+    #tag-about .col-md-4.p-0:nth-child(12) .header-tag.px-0.py-2,
+    #tag-about .col-md-4.p-0:nth-child(15) .header-tag.px-0.py-2,
+    #tag-about .col-md-4.p-0:nth-child(18) .header-tag.px-0.py-2,
+    #tag-about .col-md-4.p-0:nth-child(21) .header-tag.px-0.py-2,
+    #tag-about .col-md-4.p-0:nth-child(24) .header-tag.px-0.py-2
+    {
+        padding-left: 0.5rem !important;
+    }
+
+}
+
+
+@media (min-width: 767.98px) {
+    .col-lg-4.px-0.tag-item:nth-child(2),
+    .col-lg-4.px-0.tag-item:nth-child(3),
+    .col-lg-4.px-0.tag-item:nth-child(5),
+    .col-lg-4.px-0.tag-item:nth-child(6),
+    .col-lg-4.px-0.tag-item:nth-child(8),
+    .col-lg-4.px-0.tag-item:nth-child(9),
+    .col-lg-4.px-0.tag-item:nth-child(11),
+    .col-lg-4.px-0.tag-item:nth-child(12),
+    .col-lg-4.px-0.tag-item:nth-child(14),
+    .col-lg-4.px-0.tag-item:nth-child(15),
+    .col-lg-4.px-0.tag-item:nth-child(17),
+    .col-lg-4.px-0.tag-item:nth-child(18),
+    .col-lg-4.px-0.tag-item:nth-child(20),
+    .col-lg-4.px-0.tag-item:nth-child(21),
+    .col-lg-4.px-0.tag-item:nth-child(23),
+    .col-lg-4.px-0.tag-item:nth-child(24)
+    {
+        padding-left: 0 !important;
+    }
+    .col-lg-4.px-0.tag-item:nth-child(2),
+    .col-lg-4.px-0.tag-item:nth-child(5),
+    .col-lg-4.px-0.tag-item:nth-child(8),
+    .col-lg-4.px-0.tag-item:nth-child(11),
+    .col-lg-4.px-0.tag-item:nth-child(14),
+    .col-lg-4.px-0.tag-item:nth-child(17),
+    .col-lg-4.px-0.tag-item:nth-child(20),
+    .col-lg-4.px-0.tag-item:nth-child(23)
+    {
+        padding-left: 0.25rem !important;
+        padding-right: 0.25rem !important;
+    }
+    .col-lg-4.px-0.tag-item:nth-child(1),
+    .col-lg-4.px-0.tag-item:nth-child(4),
+    .col-lg-4.px-0.tag-item:nth-child(7),
+    .col-lg-4.px-0.tag-item:nth-child(10),
+    .col-lg-4.px-0.tag-item:nth-child(13),
+    .col-lg-4.px-0.tag-item:nth-child(16),
+    .col-lg-4.px-0.tag-item:nth-child(19),
+    .col-lg-4.px-0.tag-item:nth-child(22)
+    {
+        padding-left: 0 !important;
+    }
+
+    .col-lg-4.px-0.tag-item:nth-child(3),
+    .col-lg-4.px-0.tag-item:nth-child(6),
+    .col-lg-4.px-0.tag-item:nth-child(9),
+    .col-lg-4.px-0.tag-item:nth-child(12),
+    .col-lg-4.px-0.tag-item:nth-child(15),
+    .col-lg-4.px-0.tag-item:nth-child(18),
+    .col-lg-4.px-0.tag-item:nth-child(21),
+    .col-lg-4.px-0.tag-item:nth-child(24)
+    {
+        padding-left: 0.5rem !important;
+    }
+
+}
+

@@ -1,5 +1,6 @@
 <template>
-  <Navbar />
+<div>
+    <Navbar />
     <div class="header-about px-4">
       <div class="row m-0">
         <div class="col-md-4 p-0 about-header-name">
@@ -14,12 +15,12 @@
       <div class="px-4 tag-service-header">
         SERVICES
       </div>
-      <div class="row m-0 px-4 px-lg-0" id="tag-about">
+      <div class="row m-0 px-4" id="tag-about">
         <div class="col-md-4 p-0" v-for="tag in tags" :key="tag">
-          <div class="header-tag px-0 px-lg-4 py-2">
+          <div class="header-tag px-0 py-2">
             ({{tag.name}})
           </div>
-          <div class="px-0 px-lg-4 des-tag">
+          <div class="px-0 pe-4 des-tag">
             {{tag.description}}
           </div>
         </div>
@@ -48,6 +49,8 @@
         </div>
       </div>
     </div>
+</div>
+
   <Footer />
 </template>
 
@@ -132,8 +135,13 @@ export default {
   line-height: 22px;
 }
 
+.des-tag{
+    line-height: 24px;
+}
+
 .team-name{
   margin-top: 25px;
+  font-weight: 600;
 }
 
 .about-header-content{

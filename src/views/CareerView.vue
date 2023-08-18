@@ -45,8 +45,8 @@
       </MDBAccordionItem>
   </MDBAccordion>
     </div>
-  <Footer />
 </div>
+<Footer />
 
 </template>
 
@@ -220,7 +220,7 @@ export default {
   transition: all .5s ease;
   width: 70px;
   height: 40px;
-  background-image: url('@/assets/images/down.png');
+  background-image: url('@/assets/images/down.svg');
 }
 
 .accordion-button.collapsed .fa-chevron-up{

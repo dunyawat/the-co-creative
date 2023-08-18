@@ -1,10 +1,28 @@
 <template>
-    <div class="px-4 py-4 navbar-main">
+    <div class="px-4 navbar-main">
         <div class="row m-0">
-            <div class="col-md-4 p-0"><router-link class="nav-link" to="/">THE CO-CREATIVE</router-link> </div>
-            <div class="col-md-4 p-0"><router-link  class="nav-link" to="/project">PROJECTS</router-link></div>
-            <div class="col-md-2 p-0"><router-link  class="nav-link" to="/about">ABOUT</router-link></div>
-            <div class="col-md-2 p-0"><router-link  class="nav-link" to="/contact">CONTACT</router-link></div>
+            <div class="col-md-4 p-0"><router-link class="nav-link py-4" to="/">THE CO-CREATIVE</router-link> </div>
+            <!-- <div class="col-md-4 p-0 ps-1" v-if="route.path == '/project'"><a class="nav-link" @click="toggleDropdownShow">PROJECTS</a></div> -->
+            <div class="col-md-4 p-0 ps-1">
+                <router-link  class="nav-link py-4 project-view-tag-btn" to="/project">PROJECTS
+                    <div class="tag-container project-view-tag px-4">
+                        <div class="row m-0 d-none d-lg-flex" v-if="route.path == '/project'">
+                            <div class="col-lg-4 px-4 tag-item" v-for="tag in tags" :key="tag" @click="execute(tag.name)"> 
+                                {{tag.name}} <span>*</span>
+                            </div>
+                            <div class="tag-last-line d-none d-lg-block"></div>
+                        </div>
+                        <div class="row m-0 d-none d-lg-flex" v-else>
+                            <div class="col-lg-4 px-4 tag-item" v-for="tag in tags" :key="tag" @click="toProject(tag.name)"> 
+                                {{tag.name}} <span>*</span>
+                            </div>
+                            <div class="tag-last-line d-none d-lg-block"></div>
+                        </div>
+                    </div>
+                </router-link>
+            </div>
+            <div class="col-md-2 p-0 ps-2 py-4"><router-link  class="nav-link" to="/about">ABOUT</router-link></div>
+            <div class="col-md-2 p-0 ps-2 py-4"><router-link  class="nav-link" to="/contact">CONTACT</router-link></div>
         </div>
     </div>
     <div class="nav-mobile">
@@ -12,7 +30,7 @@
         <div class="d-flex justify-content-between align-items-center px-4 position-relative">
             <div style="width:26px;"></div>
             <img @click="router.push({path:'/'})" class="d-block" src="@/assets/images/logo-big.png" width="176" height="17" alt="">
-            <div @click="navOpen = !navOpen" :class="navOpen ?  'hamburger is-active' : 'hamburger' " id="hamburger-1">
+            <div @click="navOpen = !navOpen,projectList = false" :class="navOpen ?  'hamburger is-active' : 'hamburger' " id="hamburger-1">
                 <span class="line"></span>
                 <span class="line"></span>
                 <span class="line"></span>
@@ -20,32 +38,130 @@
         </div>
          <div :class="navOpen ? 'mobile-menu is-active' : 'mobile-menu' ">
                 <div class="w-100">
-                    <router-link  class="nav-link-mobile" to="/project">PROJECTS</router-link>
+                    <div  class="nav-link-mobile" @click="openProjectList">PROJECTS</div>
                     <router-link  class="nav-link-mobile" to="/about">ABOUT</router-link>
                     <router-link  class="nav-link-mobile" to="/contact">CONTACT</router-link>
+                </div>
+                <div :class=" projectList ? 'project-list-nav open' : 'project-list-nav'">
+                    <div class="px-4">
+                        <div class="row m-0 d-lg-flex">
+                            <div class="d-flex align-items-center back-project" @click="projectList = false">
+                                <img class="me-2" src="@/assets/images/back.png"  alt="back"> PRODUCT
+                            </div>
+                            <div class="px-4 text-center back-project-text" v-for="tag in tags" :key="tag" @click="executeMobile(tag.name)"> 
+                                {{tag.name}}
+                            </div>
+                        <div class="tag-last-line d-none d-lg-block"></div>
+                        </div>
+                    </div>
                 </div>
         </div>
     </div>
 </template>
 
 <script>
-import { ref, computed } from 'vue';
+import { ref, computed,watch } from 'vue';
 import { RouterLink,useRouter, useRoute  } from 'vue-router'
+import { TRIGGER_DROPDOWN } from '@/store/constants'
+import { FALSE_DROPDOWN,PUSH_PROJECTS,GETTER_PROJECTS,PUSH_PROJECTS_FILTER,GETTER_TAGS,PUSH_TAGS,CLEAR_STATE_PROJECT,GETTER_DROPDOWN} from '@/store/constants'
+import {useStore} from 'vuex'
 export default {
     name:'Navbar',
+    props: {
+        callback: {
+            type: Function
+        },
+        callbackMobile: {
+            type: Function
+        }
+    },
     
     setup() {
         const navOpen = ref(false)
         const router = useRouter()
+        const route = useRoute()
+        const store = useStore()
+        const tags = computed(()=> store.getters[GETTER_TAGS])
+        const projectList = ref(false)
+
         return {
             navOpen,
-            router
+            router,
+            route,
+            store,
+            tags,
+            projectList
         }
     },
+
+    methods:{
+        toggleDropdownShow(){
+            this.store.commit(TRIGGER_DROPDOWN)
+        },
+        toProject(tag){
+            this.router.push({name:'ProjectView',query:{tag:tag}})
+        },
+        async filterProjectMobile(tagName){
+            this.selectMobile = tagName
+            this.openSelected = false
+            this.productElementOne = []
+            this.productElementTwo = []
+            this.productElementThree = []
+            this.store.commit(CLEAR_STATE_PROJECT)
+            await this.store.dispatch(PUSH_PROJECTS_FILTER,{tag:tagName})
+            this.addProductToElement()
+        },
+        execute(tag) {
+            if (this.callback) {
+              this.callback(tag)
+            }
+        },
+        executeMobile(tag){
+            this.navOpen = false
+            this.projectList = false
+            if (this.callbackMobile) {
+                 this.callbackMobile(tag)
+            }
+        },
+        openProjectList(){
+            this.projectList = true
+        },
+    }
 }
 </script>
 
 <style scoped>
+    .back-project{
+        justify-content: center;
+        color: #888888;
+        font-size: 18px;
+        margin-bottom: 50px;
+        cursor: pointer;
+    }
+
+    .back-project-text{
+        font-size: 18px;
+        margin-bottom: 20px;
+        overflow: auto;
+        cursor: pointer;
+    }
+
+    .project-list-nav{
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: calc(100vh - 84.5px);
+        background: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transform: translateX(100%);
+        transition: .5s all ease;
+    }
+    .project-list-nav.open{
+        transform: translateX(0);
+    }
+
     .navbar-main{
         border-bottom: 1px solid #000;
     }
@@ -53,6 +169,7 @@ export default {
         font-size: 18px;
         letter-spacing: 0px;
         color: #000000;
+        cursor: pointer;
     }
 
     .nav-link:hover{
@@ -152,4 +269,55 @@ export default {
     img:hover{
         cursor: pointer;
     }
+
+    .project-view-tag{
+        position: absolute;
+    }
+
+    .tag-item{
+  border-bottom: 1px solid black;
+  border-collapse: collapse;
+}
+
+.tag-container .row{
+  position: relative;
+}
+
+.tag-last-line{
+  width: 100%;
+  height: 1px;
+  bottom: 0px;
+  background-color: black;
+  position: absolute;
+}
+
+.tag-item{
+  font-size: 18px;
+  padding: 5px 0;
+  cursor: pointer;
+  color: #000;
+}
+
+
+.project-view-tag-btn:hover .project-view-tag{
+    display: block;
+}
+
+.project-view-tag{
+    left: 0;
+    background: white;
+    top: 77px;
+    z-index: 1000;
+    width: 100%;
+    position: absolute;
+    display: none;
+}
+
+.tag-item span{
+    display: none;
+}
+
+.tag-item:hover span{
+    display: inline;
+}
 </style>
