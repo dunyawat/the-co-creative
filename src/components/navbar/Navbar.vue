@@ -1,4 +1,5 @@
 <template>
+    <div class="margin-navbar"></div>
     <div class="px-4 navbar-main">
         <div class="row m-0">
             <div class="col-md-4 p-0"><router-link class="nav-link py-4" to="/">THE CO-CREATIVE</router-link> </div>
@@ -265,6 +266,29 @@ export default {
             height: 40px;
             margin-bottom: 20px;
         }
+    }
+
+    .navbar-main{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: white;
+        z-index: 10000;
+    }
+
+    .nav-mobile{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: white;
+        z-index: 10000;
+    }
+
+    .margin-navbar{
+        height: 77px;
+        width: 100%;
     }
 </style>
 
