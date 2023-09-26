@@ -59,7 +59,7 @@ import Navbar from '@/components/navbar/Navbar.vue'
 import Footer from '@/components/footer/Footer.vue'
 import { ref, computed } from 'vue';
 import {useStore} from 'vuex'
-import { PUSH_PROJECTS,GETTER_PROJECTS,GETTER_TAGS,PUSH_TAGS, PUSH_STAFFS,GETTER_STAFFS} from '@/store/constants'
+import { PUSH_PROJECTS,GETTER_PROJECTS,GETTER_TAGS,PUSH_TAGS, PUSH_STAFFS,GETTER_STAFFS,TRIGGER_LOADING} from '@/store/constants'
 import { useRouter } from 'vue-router'
 export default {
   name: 'AboutUsView',
@@ -73,6 +73,7 @@ export default {
     const staffs = computed(()=> store.getters[GETTER_STAFFS])
     const projects = computed(()=> store.getters[GETTER_PROJECTS])
     const router = useRouter()
+    
     return {
       store,
       tags,
@@ -82,9 +83,11 @@ export default {
     }
   },
   async mounted(){
+    await this.store.commit(TRIGGER_LOADING,true)
     await this.store.dispatch(PUSH_TAGS)
     await this.store.dispatch(PUSH_STAFFS)
     await this.store.dispatch(PUSH_PROJECTS)
+    await this.store.commit(TRIGGER_LOADING,false)
     this.calTagElement()
     this.calClientElement()
   },

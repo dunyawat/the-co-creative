@@ -153,7 +153,8 @@
    import {
         PUSH_PROJECT,
         GETTER_PROJECT,
-        PUSH_PROJECTS,GETTER_PROJECTS,ADD_MATCH_PROJECT,GETTER_MATCH_PROJECT,CLEAR_STATE_PROJECT
+        PUSH_PROJECTS,GETTER_PROJECTS,ADD_MATCH_PROJECT,GETTER_MATCH_PROJECT,CLEAR_STATE_PROJECT,
+        TRIGGER_LOADING
     } from '@/store/constants'
   import {useStore} from 'vuex'
   import { RouterLink,useRouter, useRoute  } from 'vue-router'
@@ -185,8 +186,10 @@
         async mounted(){
           window.scrollTo(0, 0)
           this.id = this.$route.params.id
+          await this.store.commit(TRIGGER_LOADING,true)
           await this.store.dispatch(PUSH_PROJECT,this.$route.params.id)
           await this.store.dispatch(PUSH_PROJECTS)
+          await this.store.commit(TRIGGER_LOADING,false)
 
           await this.trigermatchProject()
           await this.sortMatch()

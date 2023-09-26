@@ -55,7 +55,7 @@ import Navbar from '@/components/navbar/Navbar.vue'
 import Footer from '@/components/footer/Footer.vue'
 import { MDBAccordion, MDBAccordionItem } from "mdb-vue-ui-kit";
 import {useStore} from 'vuex'
-import { PUSH_CAREERS,GETTER_CAREERS,DELETE_CAREER } from '@/store/constants'
+import { PUSH_CAREERS,GETTER_CAREERS,DELETE_CAREER,TRIGGER_LOADING } from '@/store/constants'
 import { ref,computed } from "vue";
 export default {
   name: 'CareerView',
@@ -76,11 +76,13 @@ export default {
     }
   },
   async mounted(){
+     await this.store.commit(TRIGGER_LOADING,true)
     await this.store.dispatch(PUSH_CAREERS)
+     await this.store.commit(TRIGGER_LOADING,false)
   },
   methods:{
     toProject(tag){
-          this.router.push({name:'ProjectView',query:{tag:tag}})
+      this.router.push({name:'ProjectView',query:{tag:tag}})
     },
   }
 }

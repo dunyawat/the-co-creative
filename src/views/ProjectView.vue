@@ -71,7 +71,7 @@ import Navbar from '@/components/navbar/Navbar.vue'
 import Footer from '@/components/footer/Footer.vue'
 import { ref, computed } from 'vue';
 import { RouterLink,useRouter, useRoute  } from 'vue-router'
-import { FALSE_DROPDOWN,PUSH_PROJECTS,GETTER_PROJECTS,PUSH_PROJECTS_FILTER,GETTER_TAGS,PUSH_TAGS,CLEAR_STATE_PROJECT,GETTER_DROPDOWN} from '@/store/constants'
+import { FALSE_DROPDOWN,PUSH_PROJECTS,GETTER_PROJECTS,PUSH_PROJECTS_FILTER,GETTER_TAGS,PUSH_TAGS,CLEAR_STATE_PROJECT,GETTER_DROPDOWN,TRIGGER_LOADING} from '@/store/constants'
 import {useStore} from 'vuex'
 
   export default {
@@ -113,6 +113,7 @@ import {useStore} from 'vuex'
         async mounted(){
           this.store.commit(FALSE_DROPDOWN)
           this.store.commit(CLEAR_STATE_PROJECT)
+          await this.store.commit(TRIGGER_LOADING,true)
           if(this.tagParam){
             await this.store.dispatch(PUSH_PROJECTS_FILTER,{tag:this.tagParam})
               console.log(this.tagParam)
@@ -121,6 +122,7 @@ import {useStore} from 'vuex'
           }
 
            await this.store.dispatch(PUSH_TAGS)
+          await this.store.commit(TRIGGER_LOADING,false)
           this.addProductToElement()
         },
 
@@ -149,7 +151,9 @@ import {useStore} from 'vuex'
             this.productElementTwo = []
             this.productElementThree = []
             this.store.commit(CLEAR_STATE_PROJECT)
+            await this.store.commit(TRIGGER_LOADING,true)
             await this.store.dispatch(PUSH_PROJECTS_FILTER,{tag:tagName})
+            await this.store.commit(TRIGGER_LOADING,false)
             this.addProductToElement()
           },
           toProjectDetail(projectId){
@@ -162,7 +166,9 @@ import {useStore} from 'vuex'
             this.productElementTwo = []
             this.productElementThree = []
             this.store.commit(CLEAR_STATE_PROJECT)
+            await this.store.commit(TRIGGER_LOADING,true)
             await this.store.dispatch(PUSH_PROJECTS_FILTER,{tag:tagName})
+            await this.store.commit(TRIGGER_LOADING,false)
             this.addProductToElement()
           },
           openSelect(){

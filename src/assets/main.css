@@ -274,3 +274,12 @@ p.detail-delete{
 
 }
 
+
+
+.nav-link{
+    padding: 0 !important;
+}
+
+.nav-link:hover{
+    color: black !important;
+}

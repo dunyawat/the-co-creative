@@ -67,7 +67,7 @@
     MDBModalBody,
     MDBBtn, } from 'mdb-vue-ui-kit';
     import {useStore} from 'vuex'
-    import { PUSH_STAFFS,GETTER_STAFFS,DELETE_STAFF} from '@/store/constants'
+    import { PUSH_STAFFS,GETTER_STAFFS,DELETE_STAFF,TRIGGER_LOADING} from '@/store/constants'
     export default {
         name: 'StaffBackOfficeView',
         components:{
@@ -94,7 +94,9 @@
                 this.$router.push({name:'login'})
             }
 
-             await this.store.dispatch(PUSH_STAFFS)
+            await this.store.commit(TRIGGER_LOADING, true)
+            await this.store.dispatch(PUSH_STAFFS)
+            await this.store.commit(TRIGGER_LOADING, false)
         },
         methods:{
             addStaff(staffId){
@@ -102,7 +104,9 @@
                 this.$router.push({name:'StaffManagementViewUrl', params:{id:staffId}})
             },
             async removeStaff(staffId){
+                await this.store.commit(TRIGGER_LOADING, true)
                 await this.store.dispatch(DELETE_STAFF,staffId)
+                await this.store.commit(TRIGGER_LOADING, false)
                 this.staffDeleteModal = false
             }
         }

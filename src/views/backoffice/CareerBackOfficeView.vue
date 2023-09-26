@@ -58,7 +58,7 @@
     MDBBtn, } from 'mdb-vue-ui-kit';
      import NavbarBackOffice from '@/components/backoffice/NavbarBackOffice.vue'
     import {useStore} from 'vuex'
-    import { PUSH_CAREERS,GETTER_CAREERS,DELETE_CAREER } from '@/store/constants'
+    import { PUSH_CAREERS,GETTER_CAREERS,DELETE_CAREER,TRIGGER_LOADING } from '@/store/constants'
     export default {
         name: 'CareerBackOfficeView',
         components:{
@@ -85,11 +85,15 @@
                 this.$router.push({name:'login'})
             }
 
+            await this.store.commit(TRIGGER_LOADING, true)
             await this.store.dispatch(PUSH_CAREERS)
+            await this.store.commit(TRIGGER_LOADING, false)
         },
         methods:{
              async deleteCareer(careerId){
+                await this.store.commit(TRIGGER_LOADING, true)
                 await this.store.dispatch(DELETE_CAREER,careerId)
+                await this.store.commit(TRIGGER_LOADING, false)
                 this.careerDeleteModal = false
             },
             addCareer(careerId){

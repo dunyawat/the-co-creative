@@ -10,7 +10,8 @@ const state = () => {
         projectCredit:[],
         tagCheck:[],
         matchProject:null,
-        projectDropdown:false
+        projectDropdown:false,
+        loading: false
     }
 }
 

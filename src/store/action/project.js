@@ -26,11 +26,12 @@ const project_actions = {
         const project = await getProject(projectId)
         if(project){
             context.commit(ADD_PROJECT_STATE,project)
-            const baseUrl = import.meta.env.VITE_APP_API_URL
 
             const projectSection = await  Promise.all(project.section.map( async section=>{
+                console.log(section)
                 let imageSection =  section.image
-                const imageFile =  await imageSection.replace('http://localhost:3001/images/','');
+                const imageFile =  await imageSection.replace('https://the-cp-server.onrender.com/images/','');
+                console.log(imageFile)
                 return {
                     details:section.details,
                     header:section.header,
@@ -64,9 +65,6 @@ const project_actions = {
                 context.commit(ADD_PROJECTS_STATE,projects)
             }
         }
-    
-
- 
     }
 }
 

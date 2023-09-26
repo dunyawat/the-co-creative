@@ -28,20 +28,21 @@
     </div>
     <div class="nav-mobile">
         <div class="top-black"></div>
-        <div class="d-flex justify-content-between align-items-center px-4 position-relative">
+        <div class="d-flex justify-content-between align-items-center px-4 pb-3 position-relative">
             <div style="width:26px;"></div>
             <img @click="router.push({path:'/'})" class="d-block" src="@/assets/images/logo-big.png" width="176" height="17" alt="">
-            <div @click="navOpen = !navOpen,projectList = false" :class="navOpen ?  'hamburger is-active' : 'hamburger' " id="hamburger-1">
+            <div @click="navTricker(),projectList = false" :class="navOpen ?  'hamburger is-active' : 'hamburger' " id="hamburger-1">
                 <span class="line"></span>
                 <span class="line"></span>
                 <span class="line"></span>
             </div>
         </div>
+    </div>
          <div :class="navOpen ? 'mobile-menu is-active' : 'mobile-menu' ">
                 <div class="w-100">
                     <div  class="nav-link-mobile" @click="openProjectList">PROJECTS</div>
-                    <router-link  class="nav-link-mobile" to="/about">ABOUT</router-link>
-                    <router-link  class="nav-link-mobile" to="/contact">CONTACT</router-link>
+                    <router-link  class="nav-link-mobile" to="/about" @click="navTricker()">ABOUT</router-link>
+                    <router-link  class="nav-link-mobile" to="/contact" @click="navTricker()">CONTACT</router-link>
                 </div>
                 <div :class=" projectList ? 'project-list-nav open' : 'project-list-nav'">
                     <div class="px-4">
@@ -60,7 +61,6 @@
                     </div>
                 </div>
         </div>
-    </div>
 </template>
 
 <script>
@@ -121,7 +121,7 @@ export default {
             }
         },
         executeMobile(tag){
-            this.navOpen = false
+            this.navTricker()
             this.projectList = false
             if (this.callbackMobile) {
                  this.callbackMobile(tag)
@@ -130,6 +130,17 @@ export default {
         openProjectList(){
             this.projectList = true
         },
+
+        navTricker(){
+            this.navOpen = !this.navOpen
+            const body = document.getElementsByTagName("BODY")[0];
+            if(this.navOpen){
+                body.style.overflow = 'hidden'
+            } else{
+                body.style.overflow = 'auto'
+            }
+        }
+
     }
 }
 </script>
@@ -220,7 +231,7 @@ export default {
   }
 
   .mobile-menu{
-      position:absolute;
+      position:fixed;
       top: 84.5px;
       background: white;
       width: 100%;

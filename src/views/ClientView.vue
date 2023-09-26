@@ -90,7 +90,7 @@ import Navbar from '@/components/navbar/Navbar.vue'
 import Footer from '@/components/footer/Footer.vue'
 import { ref, computed } from 'vue';
 import {useStore} from 'vuex'
-import { PUSH_TAGS,GETTER_TAGS,DELETE_TAG } from '@/store/constants'
+import { PUSH_TAGS,GETTER_TAGS,DELETE_TAG,TRIGGER_LOADING } from '@/store/constants'
 export default {
   name: 'ClientView',
   components:{
@@ -126,7 +126,9 @@ export default {
     }
   },
   async mounted(){
+    await this.store.commit(TRIGGER_LOADING,true)
     await this.store.dispatch(PUSH_TAGS)
+    await this.store.commit(TRIGGER_LOADING,false)
   },
   methods:{
       testTag(){

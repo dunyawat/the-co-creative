@@ -57,7 +57,7 @@
     MDBModalBody,
     MDBBtn, } from 'mdb-vue-ui-kit';
     import {useStore} from 'vuex'
-    import { PUSH_TAGS,GETTER_TAGS,DELETE_TAG } from '@/store/constants'
+    import { PUSH_TAGS,GETTER_TAGS,DELETE_TAG,TRIGGER_LOADING } from '@/store/constants'
     import NavbarBackOffice from '@/components/backoffice/NavbarBackOffice.vue'
     export default {
         name: 'TagBackOfficeView',
@@ -84,14 +84,19 @@
             if(!this.token){
                 this.$router.push({name:'login'})
             }
+
+            await this.store.commit(TRIGGER_LOADING, true)
             await this.store.dispatch(PUSH_TAGS)
+            await this.store.commit(TRIGGER_LOADING, false)
         },
         methods:{
             addTag(tagId){
                 this.$router.push({name:'TagManagementViewUrl',params:{id:tagId}})
             },
             async deleteTag(tagId){
+                await this.store.commit(TRIGGER_LOADING, true)
                 await this.store.dispatch(DELETE_TAG,tagId)
+                await this.store.commit(TRIGGER_LOADING, false)
                 this.tagDeleteModal = false
             }
         },

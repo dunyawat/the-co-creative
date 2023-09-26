@@ -89,7 +89,7 @@ import Navbar from '@/components/navbar/Navbar.vue'
 import Footer from '@/components/footer/Footer.vue'
 import { ref, computed } from 'vue';
 import {useStore} from 'vuex'
-import { PUSH_PROJECTS,GETTER_PROJECTS,GETTER_TAGS,PUSH_TAGS} from '@/store/constants'
+import { PUSH_PROJECTS,GETTER_PROJECTS,GETTER_TAGS,PUSH_TAGS,TRIGGER_LOADING} from '@/store/constants'
 import { useRouter } from 'vue-router'
 
   export default {
@@ -117,8 +117,10 @@ import { useRouter } from 'vue-router'
            }
         },
           async mounted(){
+            await this.store.commit(TRIGGER_LOADING,true)
             await this.store.dispatch(PUSH_TAGS)
             await this.store.dispatch(PUSH_PROJECTS)
+            await this.store.commit(TRIGGER_LOADING,false)
             this.addProductToElement()
         },
         methods:{

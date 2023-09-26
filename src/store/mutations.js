@@ -20,7 +20,8 @@ import {
     ADD_MATCH_PROJECT,
     TRIGGER_DROPDOWN,
     FALSE_DROPDOWN,
-    TRIGGER_CREDIT_TYPE
+    TRIGGER_CREDIT_TYPE,
+    TRIGGER_LOADING,
 } from '@/store/constants'
 
 
@@ -108,6 +109,10 @@ const mutations = {
         state.projectCredit.forEach(element => {
                 element.credit_type = type
         });
+    },
+    [TRIGGER_LOADING](state,loading){
+        console.log(loading)
+        state.loading = loading
     }
 }
 

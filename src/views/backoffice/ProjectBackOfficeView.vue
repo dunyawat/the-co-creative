@@ -58,7 +58,7 @@
     MDBModalBody,
     MDBBtn, } from 'mdb-vue-ui-kit';
     import {useStore} from 'vuex'
-    import { PUSH_PROJECTS,GETTER_PROJECTS,DELETE_PROJECT,CLEAR_STATE_PROJECT} from '@/store/constants'
+    import { PUSH_PROJECTS,GETTER_PROJECTS,DELETE_PROJECT,CLEAR_STATE_PROJECT,TRIGGER_LOADING} from '@/store/constants'
     export default {
         name: 'ProjectBackOfficeView',
         components:{
@@ -84,12 +84,15 @@
             if(!this.token){
                 this.$router.push({name:'login'})
             }
-
+            await this.store.commit(TRIGGER_LOADING, true)
             await this.store.dispatch(PUSH_PROJECTS)
+            await this.store.commit(TRIGGER_LOADING, false)
         },
         methods:{
             async removeProject(projectId){
+                await this.store.commit(TRIGGER_LOADING, true)
                 await this.store.dispatch(DELETE_PROJECT,projectId)
+                await this.store.commit(TRIGGER_LOADING, false)
                 this.projectDeleteModal = false
             },
             addProject(projectId){

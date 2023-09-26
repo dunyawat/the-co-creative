@@ -1,4 +1,4 @@
-import {GETTER_MATCH_PROJECT,GETTER_TAGS,GETTER_STAFFS,GETTER_CAREERS,GETTER_PROJECTS,GETTER_PROJECT,GETTER_LINK,GETTER_SECTION,GETTER_CREDIT,GETTER_TEXT_CHECK,GETTER_DROPDOWN} from '@/store/constants' 
+import {GETTER_MATCH_PROJECT,GETTER_TAGS,GETTER_STAFFS,GETTER_CAREERS,GETTER_PROJECTS,GETTER_PROJECT,GETTER_LINK,GETTER_SECTION,GETTER_CREDIT,GETTER_TEXT_CHECK,GETTER_DROPDOWN,GETTER_LOADING} from '@/store/constants' 
 
 const getters = {
     [GETTER_TAGS](state){
@@ -33,7 +33,11 @@ const getters = {
     },
     [GETTER_DROPDOWN](state){
         return state.projectDropdown
+    },
+    [GETTER_LOADING](state){
+        return state.loading
     }
+
 }
 
 export default getters
