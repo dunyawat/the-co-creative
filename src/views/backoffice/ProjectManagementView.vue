@@ -348,10 +348,10 @@
                 this.projectDescription = this.project.description
                 this.projectBannerStyle = this.project.style
                 let imageSection =  this.project.image
-                const imageFile =  await imageSection.replace('https://the-cp-server.onrender.com/images/','');
+                const imageFile =  await imageSection.replace('https://genech-server.vercel.app/images/','');
                 this.projectImage = imageFile
                 let imageDisplaySection =  this.project.image_display
-                const imageDisplayFile =  await imageDisplaySection.replace('https://the-cp-server.onrender.com/images/','');
+                const imageDisplayFile =  await imageDisplaySection.replace('https://genech-server.vercel.app/images/','');
                 this.projectImageDisplay = imageDisplayFile
                 if(this.project.credit){
                     this.creditType = this.project.credit[0].credit_type
@@ -451,7 +451,7 @@
                 const sectionTextData = {
                     details:"",
                     header:"",
-                    image:"https://the-cp-server.onrender.com/images/images/null",
+                    image:"https://genech-server.vercel.app/images/images/null",
                     section_type:"text",
                     theme:"blackBgWhite",
                     image64:null,
@@ -611,7 +611,7 @@
             },
             async cutUrl(){
                const dataSection =  Promise.all( await this.projectSection.map(async (section) => {
-                    const imageName = await section.image.replace('https://the-cp-server.onrender.com/images/','');
+                    const imageName = await section.image.replace('https://genech-server.vercel.app/images/','');
                     return {
                         details:section.details,
                         header:section.header,

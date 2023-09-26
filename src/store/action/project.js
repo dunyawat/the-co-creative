@@ -30,7 +30,7 @@ const project_actions = {
             const projectSection = await  Promise.all(project.section.map( async section=>{
                 console.log(section)
                 let imageSection =  section.image
-                const imageFile =  await imageSection.replace('https://the-cp-server.onrender.com/images/','');
+                const imageFile =  await imageSection.replace('https://genech-server.vercel.app/images/','');
                 console.log(imageFile)
                 return {
                     details:section.details,
