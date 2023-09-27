@@ -30,7 +30,7 @@ const project_actions = {
             const projectSection = await  Promise.all(project.section.map( async section=>{
                 console.log(section)
                 let imageSection =  section.image
-                const imageFile =  await imageSection.replace('http://127.0.0.1:3001/images/','');
+                const imageFile =  await imageSection.replace('http://137.184.81.87:81/images/','');
                 console.log(imageFile)
                 return {
                     details:section.details,

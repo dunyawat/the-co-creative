@@ -348,10 +348,10 @@
                 this.projectDescription = this.project.description
                 this.projectBannerStyle = this.project.style
                 let imageSection =  this.project.image
-                const imageFile =  await imageSection.replace('http://127.0.0.1:3001/images/','');
+                const imageFile =  await imageSection.replace('http://137.184.81.87:81/images/','');
                 this.projectImage = imageFile
                 let imageDisplaySection =  this.project.image_display
-                const imageDisplayFile =  await imageDisplaySection.replace('http://127.0.0.1:3001/images/','');
+                const imageDisplayFile =  await imageDisplaySection.replace('http://137.184.81.87:81/images/','');
                 this.projectImageDisplay = imageDisplayFile
                 if(this.project.credit){
                     this.creditType = this.project.credit[0].credit_type
@@ -451,7 +451,7 @@
                 const sectionTextData = {
                     details:"",
                     header:"",
-                    image:"http://127.0.0.1:3001/images/images/null",
+                    image:"http://137.184.81.87:81/images/images/null",
                     section_type:"text",
                     theme:"blackBgWhite",
                     image64:null,
@@ -611,7 +611,7 @@
             },
             async cutUrl(){
                const dataSection =  Promise.all( await this.projectSection.map(async (section) => {
-                    const imageName = await section.image.replace('http://127.0.0.1:3001/images/','');
+                    const imageName = await section.image.replace('http://137.184.81.87:81/images/','');
                     return {
                         details:section.details,
                         header:section.header,
