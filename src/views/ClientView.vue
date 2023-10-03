@@ -141,7 +141,6 @@ export default {
                 this.confirmTag.push(checkbox.value)
             }
         })
-        // this.store.commit(ADD_TEXT_CHECK,this.confirmTag)
     },
     unChecked(){
       this.confirmTag = []
@@ -186,7 +185,9 @@ export default {
         tag:this.confirmTag
       }
 
+      await this.store.commit(TRIGGER_LOADING,true)
       const response = await postContact(dataForm)
+      await this.store.commit(TRIGGER_LOADING,false)
 
       if(response.status = 201){
         alert('Email successfully sent')
