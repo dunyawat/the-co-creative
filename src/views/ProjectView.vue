@@ -374,7 +374,7 @@ import {useStore} from 'vuex'
 
     .home-detail{
       margin-bottom: 42px;
-      margin-top: 42px;
+      margin-top: 20px;
       font-size: 28px;
     }
 

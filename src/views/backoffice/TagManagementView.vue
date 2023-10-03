@@ -109,6 +109,8 @@
                 await this.store.commit(TRIGGER_LOADING, false)
                 if(status.status == 201){
                     this.$router.push({name:'TagBackOfficeViewUrl'})
+                } else{
+                    alert('Failed to create')
                 }
             },
             async editTag(){
@@ -122,6 +124,8 @@
                 console.log(status)
                 if(status.status == 200){
                     this.$router.push({name:'TagBackOfficeViewUrl'})
+                } else{
+                    alert('The update was unsuccessful.')
                 }
             },
             backToBackOffice(){

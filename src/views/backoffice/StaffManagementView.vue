@@ -183,6 +183,8 @@
                     console.log(status)
                     if(status.status == 201){
                         this.$router.push({name:'StaffBackOfficeViewUrl'})
+                    } else{
+                        alert('Failed to create')
                     }
                 }
             },
@@ -207,6 +209,8 @@
                 await this.store.commit(TRIGGER_LOADING, false)
                 if(status.status == 200){
                     this.$router.push({name:'StaffBackOfficeViewUrl'})
+                } else{
+                        alert('The update was unsuccessful.')
                 }
             },
             backToBackOffice(){

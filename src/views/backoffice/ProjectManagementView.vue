@@ -558,6 +558,8 @@
                 console.log(status)
                 if(status.status == 201){
                     this.$router.push({name:'ProjectBackOfficeViewUrl'})
+                } else{
+                        alert('Failed to create')
                 }
             },
             async updateProject(){
@@ -586,6 +588,8 @@
                 console.log(status)
                 if(status.status == 200){
                     this.$router.push({name:'ProjectBackOfficeViewUrl'})
+                } else{
+                        alert('The update was unsuccessful.')
                 }
             },
             backToBackOffice(){

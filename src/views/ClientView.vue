@@ -91,6 +91,7 @@ import Footer from '@/components/footer/Footer.vue'
 import { ref, computed } from 'vue';
 import {useStore} from 'vuex'
 import { PUSH_TAGS,GETTER_TAGS,DELETE_TAG,TRIGGER_LOADING } from '@/store/constants'
+import postContact from '@/api/contact/postContact.js'
 export default {
   name: 'ClientView',
   components:{
@@ -142,7 +143,13 @@ export default {
         })
         // this.store.commit(ADD_TEXT_CHECK,this.confirmTag)
     },
-
+    unChecked(){
+      this.confirmTag = []
+      const checkboxs = document.querySelectorAll('.tag-check') 
+      checkboxs.forEach(checkbox=>{
+          checkbox.checked = false
+      })
+    },
     async checkForm(){
       await this.testTag()
       console.log(this.confirmTag)
@@ -154,8 +161,6 @@ export default {
       console.log(this.launch_month)
       console.log(this.launch_year)
       console.log(this.about_company)
-  
-  
 
       if(this.confirmTag.length && this.name && this.company && this.phone && this.budget && this.email && this.launch_month && this.launch_year){
         this.checkInput = true
@@ -181,7 +186,24 @@ export default {
         tag:this.confirmTag
       }
 
-      console.log(dataForm)
+      const response = await postContact(dataForm)
+
+      if(response.status = 201){
+        alert('Email successfully sent')
+          this.confirmTag = ''
+          this.name = ''
+          this.company = ''
+          this.phone = ''
+          this.budget = ''
+          this.email = ''
+          this.launch_month = ''
+          this.launch_year = ''
+          this.about_company = ''
+          this.unChecked()
+      } else{
+        alert('Email failed to send')
+      }
+      
     },
       toProject(tag){
             this.router.push({name:'ProjectView',query:{tag:tag}})

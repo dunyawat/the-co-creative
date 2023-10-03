@@ -27,8 +27,8 @@
         </div>
     </div>
     <div class="nav-mobile">
-        <div class="top-black"></div>
-        <div class="d-flex justify-content-between align-items-center px-4 pb-3 position-relative">
+        <!-- <div class="top-black"></div> -->
+        <div class="d-flex justify-content-between align-items-center px-4 py-4 position-relative">
             <div style="width:26px;"></div>
             <img @click="router.push({path:'/'})" class="d-block" src="@/assets/images/logo-big.png" width="176" height="17" alt="">
             <div @click="navTricker(),projectList = false" :class="navOpen ?  'hamburger is-active' : 'hamburger' " id="hamburger-1">
@@ -300,6 +300,10 @@ export default {
     .margin-navbar{
         height: 77px;
         width: 100%;
+    }
+
+    .nav-link:hover, .nav-link:focus {
+        color: black;
     }
 </style>
 

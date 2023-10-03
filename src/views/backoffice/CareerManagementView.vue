@@ -131,10 +131,11 @@
                 await this.store.commit(TRIGGER_LOADING, false)
                 if(status.status == 201){
                     this.$router.push({name:'CareerBackOfficeViewUrl'})
+                } else{
+                        alert('Failed to create')
                 }
             },
             async editCareer(){
-                console.log("Fadsga;slmglk")
                 const careerData = {
                     name: this.careerName,
                     responsibilities:this.careerResponsibilities,
@@ -146,6 +147,8 @@
                 await this.store.commit(TRIGGER_LOADING, false)
                 if(status.status == 200){
                     this.$router.push({name:'CareerBackOfficeViewUrl'})
+                } else{
+                        alert('The update was unsuccessful.')
                 }
             },
             backToBackOffice(){
