@@ -232,7 +232,7 @@ export default {
 
   .mobile-menu{
       position:fixed;
-      top: 84.5px;
+      top: 72.5px;
       background: white;
       width: 100%;
       height: calc(100vh - 84.5px);

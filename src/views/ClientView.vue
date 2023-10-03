@@ -411,7 +411,7 @@ textarea.form-control.input-inquiries{
 
   .inquiries-content{
     font-size: 16px;
-    font-weight: 19px;
+      line-height: 19px;
     margin-bottom: 29px;
   }
 
