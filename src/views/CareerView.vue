@@ -22,7 +22,6 @@
         :key="career._id"
         :headerTitle="career.name"
         :collapseId="career._id"
-        icon="fas fa-light fa-chevron-up  me-2"
       >
       <div class="row career-item mx-0" v-if="career.responsibilities">
         <div class="col-md-4 p-0 career-item-header">Responsibilities</div>
@@ -167,6 +166,40 @@ export default {
   margin-top: -1px;
 }
 
+.accordion-header{
+  position: relative;
+}
+
+.accordion-header:hover::after{
+  z-index: 3 !important;
+}
+
+.accordion-header::after{
+  content: '';
+  position:absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 1.15rem;
+  z-index: -1;
+  width: 71px;
+  height: 30px;
+  background-image: url('@/assets/images/up.png');
+  background-size: 100% 100%;
+}
+
+.accordion-header:has(.collapsed)::after{
+  content: '';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 1.15rem;
+  z-index: -1;
+  width: 71px;
+  height: 30px;
+  background-image: url('@/assets/images/down.png');
+  background-size: 100% 100%;
+}
+
 @media (min-width: 1024px) {
   .about {
     min-height: 100vh;
@@ -218,18 +251,6 @@ export default {
   }
 }
 
-
-.fa-chevron-up{
-  position:absolute;
-  right: 10px;
-  opacity: 0;
-  color: transparent;
-  transition: all .5s ease;
-  width: 70px;
-  height: 40px;
-  background-image: url('@/assets/images/down.svg');
-}
-
 .accordion-button.collapsed .fa-chevron-up{
   transform: rotate(180deg);
 }
@@ -241,10 +262,5 @@ export default {
 .accordion-flush .accordion-button:not(.collapsed):hover{
   background-color: #F0F0F0;
 }
-
-.accordion-button:hover .fa-chevron-up{
-  opacity: 1;
-}
-
 
 </style>
