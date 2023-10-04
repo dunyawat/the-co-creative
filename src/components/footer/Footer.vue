@@ -26,7 +26,7 @@
                             PLEASE REACH OUT FOR WORK INQUIRIES.
                         </div>
             
-                        <div class="line-hover">
+                        <div class="line-hover" @click="router.push({name:'ClientViewUrl'})">
                             <img class="image-line" src="@/assets/images/line-new.svg" alt="logo">
                             <img class="image-line-long" src="@/assets/images/long.png" alt="logo">
                             <img src="@/assets/images/arrow.svg" style="margin-left:-12px; margin-right:5px" alt="logo">
@@ -41,10 +41,15 @@
 </template>
 
 <script>
+import { useRouter } from 'vue-router'
 export default {
     name:'Footer',
     setup() {
-        
+        const router = useRouter()
+
+        return{
+            router
+        }
     },
 }
 </script>
