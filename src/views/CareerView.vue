@@ -232,7 +232,7 @@ export default {
 
   .accordion-button{
     font-size: 24px !important;
-    font-weight: 28px !important;
+    line-height: 28px !important;
     padding-bottom: 30px !important;
     padding-top: 30px !important;
   }

@@ -301,6 +301,7 @@ import { useRouter } from 'vue-router'
 
     .home-detail{
       margin-bottom: 42px;
+      line-height: 33px;
       margin-top: 20px;
       font-size: 28px;
     }
