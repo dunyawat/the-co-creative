@@ -159,7 +159,7 @@
                         <div class="col-6 p-0">
                             <div class="form-group mb-3">
                                 <label for="detail-section">Detail</label>
-                                <input class="form-control input-b" type="text" v-model="section.details">
+                                <textarea class="text-area-b form-control input-b" type="text" v-model="section.details"></textarea>
                             </div>
                         </div>
                     </div>
@@ -353,7 +353,7 @@
                 let imageDisplaySection =  this.project.image_display
                 const imageDisplayFile =  await imageDisplaySection.replace('http://137.184.81.87:81/images/','');
                 this.projectImageDisplay = imageDisplayFile
-                if(this.project.credit){
+                if(this.project.credit.length){
                     this.creditType = this.project.credit[0].credit_type
                 }
                 this.cutUrl()
