@@ -130,9 +130,9 @@
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="sub-header py-3">Text</div>
                         <div>
-                            <button v-if="index != 0" class="btn" @click="moveSection(index,index-1)"><MDBIcon icon="chevron-circle-up" iconStyle="fas" size="2x" /></button>
-                            <button v-if="!(index == (projectSection.length - 1))" class="btn" @click="moveSection(index,index+1)"><MDBIcon icon="chevron-circle-down" iconStyle="fas" size="2x" /></button>
-                            <button class="btn section-delete" @click="deleteSection(index)"><MDBIcon icon="trash" iconStyle="fas" size="2x" /></button>
+                            <div v-if="index != 0" class="btn" @click="moveSection(index,index-1)"><MDBIcon icon="chevron-circle-up" iconStyle="fas" size="2x" /></div>
+                            <div v-if="!(index == (projectSection.length - 1))" class="btn" @click="moveSection(index,index+1)"><MDBIcon icon="chevron-circle-down" iconStyle="fas" size="2x" /></div>
+                            <div class="btn section-delete" @click="deleteSection(index)"><MDBIcon icon="trash" iconStyle="fas" size="2x" /></div>
                         </div>
                     </div>
                     <div class="row m-0">
@@ -168,9 +168,9 @@
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="sub-header py-3">Image</div>
                         <div>
-                            <button v-if="index != 0" class="btn" @click="moveSection(index,index-1)"><MDBIcon icon="chevron-circle-up" iconStyle="fas" size="2x" /></button>
-                            <button v-if="!(index == (projectSection.length - 1))" class="btn" @click="moveSection(index,index+1)"><MDBIcon icon="chevron-circle-down" iconStyle="fas" size="2x" /></button>
-                            <button class="btn section-delete" @click="deleteSection(index)"><MDBIcon icon="trash" iconStyle="fas" size="2x" /></button>
+                            <div v-if="index != 0" class="btn" @click="moveSection(index,index-1)"><MDBIcon icon="chevron-circle-up" iconStyle="fas" size="2x" /></div>
+                            <div v-if="!(index == (projectSection.length - 1))" class="btn" @click="moveSection(index,index+1)"><MDBIcon icon="chevron-circle-down" iconStyle="fas" size="2x" /></div>
+                            <div class="btn section-delete" @click="deleteSection(index)"><MDBIcon icon="trash" iconStyle="fas" size="2x" /></div>
                         </div>
                     </div>
                     <div class="row m-0">
@@ -185,8 +185,8 @@
             </div>
             <div class="row m-0 border-b py-3">
                 <div class="col-6 p-0">
-                    <button @click="addSectionText()" class="btn confirm-btn btn-w-100"><MDBIcon icon="plus" iconStyle="fas" size="1x" /> Add text</button>
-                    <button @click="addSectionImage()" class="btn confirm-btn btn-w-100"><MDBIcon icon="plus" iconStyle="fas" size="1x" /> Add image</button>
+                    <div @click="addSectionText()" class="btn confirm-btn btn-w-100"><MDBIcon icon="plus" iconStyle="fas" size="1x" /> Add text</div>
+                    <div @click="addSectionImage()" class="btn confirm-btn btn-w-100"><MDBIcon icon="plus" iconStyle="fas" size="1x" /> Add image</div>
                 </div>
             </div>
             <div class="mb-5">
@@ -364,7 +364,6 @@
             await this.store.commit(TRIGGER_LOADING, false)
             this.projectTag = this.project ? this.project.tag ? this.project.tag : null : null
             await this.genMenutag()
-            console.log('this.projectTag',this.projectTag)
         },
         methods:{
             addMoreLink(){
@@ -615,16 +614,28 @@
             },
             async cutUrl(){
                const dataSection =  Promise.all( await this.projectSection.map(async (section) => {
-                    const imageName = await section.image.replace('http://137.184.81.87:81/images/','');
-                    return {
-                        details:section.details,
-                        header:section.header,
-                        image:imageName,
-                        section_type:section.section_type,
-                        theme:section.theme,
-                        image64:section.image64,
-                        update_image:section.update_image,
-                    }
+                   if(section.image){
+                        const imageName = await section.image.replace('http://137.184.81.87:81/images/','');
+                        return {
+                            details:section.details,
+                            header:section.header,
+                            image:imageName,
+                            section_type:section.section_type,
+                            theme:section.theme,
+                            image64:section.image64,
+                            update_image:section.update_image,
+                        }
+                   } else{
+                          return {
+                            details:section.details,
+                            header:section.header,
+                            image:section.image,
+                            section_type:section.section_type,
+                            theme:section.theme,
+                            image64:section.image64,
+                            update_image:section.update_image,
+                        }
+                   }
                 }))
                 return dataSection
             },
