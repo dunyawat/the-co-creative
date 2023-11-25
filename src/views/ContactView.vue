@@ -1,4 +1,5 @@
 <template>
+<div class="height-100">
 <div>
     <Navbar :callbackMobile="toProject" />
     <div class="contact-page">
@@ -16,9 +17,8 @@
     </div>
     </div>
 </div>
-
-
-  <Footer />
+<Footer />
+</div>
 </template>
 
 <script>
@@ -87,6 +87,13 @@ export default {
     transition: all 0.5s ease;
 }
 
+.height-100{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 @media (min-width: 1024px) {
   .about {
     min-height: 100vh;
@@ -96,10 +103,7 @@ export default {
 }
 
 @media (max-width: 767.98px) { 
-    .contact-page{
-        margin-top: 140px;
-        margin-bottom: 250px;
-    }
+
 
     .contact-page{
         border-top: 1px solid #000;

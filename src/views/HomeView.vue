@@ -1,5 +1,5 @@
 <template>
-<div>
+<div id="home-page">
     <Navbar :callbackMobile="toProject" />
     <div class="px-4 home-detail">
     At The Co-Creative — We are a group of young creative specialized in 
@@ -9,7 +9,7 @@
     Our strengths is that we offer you 
     <span> one stop service </span> and we are thriving to push this industry forward.
   </div>
-  <div class="tag-container mb-5 mt-md-5 px-4 px-md-4">
+  <div class="tag-container mb-5 px-4 px-md-4">
     <div class="row m-0">
       <div class="col-lg-4 px-0 tag-item" v-for="tag in tags" :key="tag" @click="toProject(tag.name)"> 
         {{tag.name}}
@@ -17,6 +17,8 @@
       <div class="tag-last-line"></div>
     </div>
   </div>
+
+  <div class="position-home">
 
   <div class="px-4 home-logo d-none d-md-block">
     <img class="w-100" src="@/assets/images/logo-big.png" alt="logo">
@@ -79,9 +81,15 @@
       </div>
     </div>
   </div>
+  </div>
+
 </div>
 
-  <Footer />
+<div class="footer-home">
+    <Footer />
+</div>
+
+
 </template>
 
 <script>
@@ -154,6 +162,7 @@ import { useRouter } from 'vue-router'
 </script>
 
 <style>
+
 .ck input.ck-input.ck-input-text {
     transition: .2s ease-in-out;
     height: 500px;
@@ -188,6 +197,18 @@ import { useRouter } from 'vue-router'
 </style>
 
 <style scoped>
+#home-page .tag-container{
+  margin-top: 450px;
+  background: white;
+}
+
+.position-home{
+  position: relative;
+  z-index: 2;
+  background: white;
+  padding-bottom: 60px;
+}
+
 
 .project-detail{
   margin-top: 25px;
@@ -234,20 +255,44 @@ import { useRouter } from 'vue-router'
   border-top: 1px solid black;
 }
 
+.home-detail{
+  padding-top: 57px;
+  padding-bottom: 200px;
+  font-size: 40px;
+  color: black;
+  font-family: "freight-big-pro";
+  line-height: 48px;
+  background: white;
+  position: fixed;
+  z-index: 1;
+}
+
+
 .home-logo{
-  margin-top: 150px;
+  padding-top: 100px;
   margin-bottom: 100px;
 }
 
-.home-detail{
-  margin-top: 57px;
-  margin-bottom: 190px;
-  font-size: 50px;
-  color: black;
-  font-family: "freight-big-pro";
-  line-height: 60px;
-}
 
+
+  @media (max-width: 1200.98px) { 
+    .home-detail{
+        font-size: 30px;
+        line-height: 36px;
+          padding-bottom: 150px;
+    }
+
+    #home-page .tag-container{
+      margin-top: 400px;
+    }
+
+
+    .home-logo{
+      padding-top: 70px;
+      margin-bottom: 70px;
+    }
+
+  }
 
 .home-detail span{
   font-family: "freight-big-pro";
@@ -300,11 +345,19 @@ import { useRouter } from 'vue-router'
     }
 
     .home-detail{
+      padding-top: 0;
+      padding-bottom: 0;
       margin-bottom: 42px;
       line-height: 33px;
       margin-top: 20px;
       font-size: 28px;
+      position: relative;
     }
+
+    #home-page .tag-container{
+      margin-top: 0;
+    }
+    
 
     .tag-item{
       font-size: 14px;
@@ -320,6 +373,13 @@ import { useRouter } from 'vue-router'
 .product-card:hover{
   cursor: pointer;
   opacity: .75;
+}
+
+.footer-home{
+  position: relative;
+  z-index: 2;
+  background: white;
+  margin-top: -60px;
 }
 
 </style>

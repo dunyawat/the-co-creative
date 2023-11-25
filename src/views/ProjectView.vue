@@ -265,21 +265,6 @@ import {useStore} from 'vuex'
   margin-bottom: 100px;
 }
 
-.home-detail{
-  margin-top: 57px;
-  margin-bottom: 190px;
-  font-size: 50px;
-  color: black;
-  font-family: "freight-big-pro";
-  line-height: 60px;
-}
-
-
-.home-detail span{
-  font-family: "freight-big-pro";
-  font-style: italic;
-  font-weight: 500;
-}
 
 .project-view-tag{
   margin-top: -1px;
@@ -338,10 +323,6 @@ import {useStore} from 'vuex'
     border-top: none;
   }
 
-  .home-detail{
-    margin-bottom: 100px;
-  }
-
   .project-tag{
     font-size: 14px;
   }
@@ -370,12 +351,6 @@ import {useStore} from 'vuex'
 
     .tag-container.mb-5{
       margin-bottom: 22px !important;
-    }
-
-    .home-detail{
-      margin-bottom: 42px;
-      margin-top: 20px;
-      font-size: 28px;
     }
 
     .tag-item{

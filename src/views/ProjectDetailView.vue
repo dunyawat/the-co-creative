@@ -135,7 +135,7 @@
     <div class="view-more-project px-4" v-if="projectsMatch">
       <div class="view-more-project-header">VIEW MORE PROJECTS</div>
       <div class="row">
-        <div v-for="(project,index) in projectsMatch" :key="project.id" class="col-md-4 mb-4 mb-md-0 recent-product" @click="toProjectDetail(project.id)">
+        <div v-for="(project,index) in projectsMatch" :key="project.id" :class="index < 3 ? 'col-md-4 mb-4 mb-md-0 recent-product' : 'd-none'" @click="toProjectDetail(project.id)">
           <div v-if="index < 3">
             <img :src="project.image_display" crossorigin="anonymous" alt="">
           </div>
@@ -486,9 +486,6 @@
   text-decoration: underline;
 }
 
-  .banner-project{
-    margin-top: 20px;
-  }
   .product-header-mobile{
     font-size: 14px;
     line-height: 18px;
@@ -556,5 +553,9 @@
     font-size: 14px;
     line-height: 18px;
   }
+}
+
+#product-detail{
+  margin-bottom: -60px;
 }
 </style>

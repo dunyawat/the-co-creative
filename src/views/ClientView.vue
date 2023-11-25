@@ -1,10 +1,17 @@
 <template>
+<div class="height-100">
+
+
 <div>
   <Navbar :callbackMobile="toProject"/>
     <h1 class="inquiries-header px-4">Client Inquiries</h1>
-    <div class="px-4">
+    <div v-if="sendSuccess" class="thank-send px-4">
+      Thank you for inquiring about our service.  <br>
+      We will get back to you soon.
+    </div>
+    <div v-else class="px-4">
       <div class="row m-0">
-        <div class="col-lg-6 p-0">
+        <div class="col-lg-5 p-0">
           <div class="inquiries-content pe-md-4">
              We’re passionate about working with forward- 
           thinking businesses that understand the power and 
@@ -17,8 +24,8 @@
             <h3>THE CO-CREATIVE</h3>
             <p>
               Pu Hai Properties Buiding, <br>
-              1974/1, ROOM 202, New Phetchaburi Rd.,<br>
-              Bangkapi, Hueykwang, BKK 10310
+              1974/1, Room 202, New Phetchaburi Rd.,<br>
+              Bangkapi, Hueykwang, Bangkok 10310
             </p>
             <div>
               <a href="tel:+66989296523">(66) 098-929-6523</a>
@@ -26,6 +33,9 @@
               <a href="mailto:hello@the-cocreative.com">hello@the-cocreative.com</a>
             </div>
           </div>
+        </div>
+        <div class="col-lg-1 p-0">
+
         </div>
         <div class="col-lg-5 p-0 inquiries-form">
           <div class="form-group mb-2">
@@ -83,6 +93,7 @@
 </div>
   
   <Footer />
+  </div>
 </template>
 
 <script>
@@ -111,6 +122,8 @@ export default {
     const launch_year = ref('')
     const about_company = ref('')
     const checkInput = ref(false)
+    const sendSuccess = ref(false)
+
     return {
         tags,
         store,
@@ -123,7 +136,8 @@ export default {
         launch_month,
         launch_year,
         about_company,
-        checkInput
+        checkInput,
+        sendSuccess,
     }
   },
   async mounted(){
@@ -190,7 +204,7 @@ export default {
       await this.store.commit(TRIGGER_LOADING,false)
 
       if(response.status = 201){
-        alert('Email successfully sent')
+          this.sendSuccess = true
           this.confirmTag = ''
           this.name = ''
           this.company = ''
@@ -214,6 +228,20 @@ export default {
 </script>
 
 <style scoped>
+.thank-send{
+  font-size: 30px;
+  color: #000;
+  font-family: "freight-big-pro";
+  font-weight: 300;
+  line-height: 35px;
+}
+
+  @media (max-width: 767.98px) { 
+    .thank-send{
+      font-size: 26px;
+      line-height: 30px;
+    }
+  }
 
 input.tag-check{
   position: absolute;
@@ -405,13 +433,13 @@ textarea.form-control.input-inquiries{
   .inquiries-header {
     font-size: 40px;
     line-height: 49px;
-    margin-top: 60px;
+    margin-top: 25px;
     margin-bottom: 30px;
   }
 
   .inquiries-content{
-    font-size: 16px;
-      line-height: 19px;
+    font-size: 22px;
+    line-height: 25px;
     margin-bottom: 29px;
   }
 

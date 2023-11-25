@@ -2,6 +2,10 @@
     font-family: 'Montserrat', sans-serif;
 }
 
+#app{
+    height: 100vh;
+}
+
 #id{
     display: flex;
     flex-direction: column;

@@ -40,7 +40,7 @@
     </div>
          <div :class="navOpen ? 'mobile-menu is-active' : 'mobile-menu' ">
                 <div class="w-100">
-                    <div  class="nav-link-mobile" @click="openProjectList">PROJECTS</div>
+                    <router-link  class="nav-link-mobile" to="/project">PROJECTS</router-link >
                     <router-link  class="nav-link-mobile" to="/about" @click="navTricker()">ABOUT</router-link>
                     <router-link  class="nav-link-mobile" to="/contact" @click="navTricker()">CONTACT</router-link>
                 </div>
@@ -298,7 +298,7 @@ export default {
     }
 
     .margin-navbar{
-        height: 77px;
+        height: 72.5px;
         width: 100%;
     }
 

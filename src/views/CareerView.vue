@@ -174,6 +174,10 @@ export default {
   z-index: 3 !important;
 }
 
+.accordion-header:hover .accordion-button{
+  background-color: #F0F0F0;
+}
+
 .accordion-header::after{
   content: '';
   position:absolute;
@@ -186,6 +190,16 @@ export default {
   background-image: url('@/assets/images/up.png');
   background-size: 100% 100%;
 }
+
+@media (max-width: 767.98px) { 
+  .accordion-header::after{
+      width: 40px !important;
+      height: 20px  !important;;
+    }
+}
+
+
+
 
 .accordion-header:has(.collapsed)::after{
   content: '';
@@ -216,7 +230,7 @@ export default {
 
 @media (max-width: 767.98px) { 
   .career-header-container{
-    margin-top: 60px;
+    margin-top: 25px;
     margin-bottom: 75px;
   }
   .career-header{
