@@ -215,6 +215,9 @@ export default {
           this.launch_year = ''
           this.about_company = ''
           this.unChecked()
+
+          document.body.scrollTop = 0;
+          document.documentElement.scrollTop = 0;
       } else{
         alert('Email failed to send')
       }

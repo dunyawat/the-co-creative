@@ -40,7 +40,7 @@
     </div>
          <div :class="navOpen ? 'mobile-menu is-active' : 'mobile-menu' ">
                 <div class="w-100">
-                    <router-link  class="nav-link-mobile" to="/project">PROJECTS</router-link >
+                    <router-link  class="nav-link-mobile" to="/project"  @click="navTricker()">PROJECTS</router-link >
                     <router-link  class="nav-link-mobile" to="/about" @click="navTricker()">ABOUT</router-link>
                     <router-link  class="nav-link-mobile" to="/contact" @click="navTricker()">CONTACT</router-link>
                 </div>
