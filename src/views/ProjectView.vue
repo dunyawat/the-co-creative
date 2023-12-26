@@ -279,8 +279,8 @@ import {useStore} from 'vuex'
   color: black;
   line-height: 18px;
   padding: 8.5px 0;
-  border-top: 1px solid #000;
-  border-bottom: 1px solid #000;
+  border-top: 0.25px solid #000;
+  border-bottom: 0.25px solid #000;
   display: flex;
   width: 100%;
   align-items: center;
@@ -312,14 +312,14 @@ import {useStore} from 'vuex'
   color: black;
   line-height: 18px;
   padding: 8.5px 0;
-  border-bottom: 1px solid #000;
+  border-bottom: 0.25px solid #000;
   list-style: none;
   cursor: pointer;
 }
 
 @media (max-width: 991.98px) { 
   .tag-item:nth-child(1){
-    border-top: 1px solid black;
+    border-top: 0.25px solid black;
   }
 
   .tag-item:nth-child(2),.tag-item:nth-child(3){

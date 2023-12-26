@@ -685,12 +685,12 @@
 }
 
 .border-b{
-    border-bottom: 1px solid #000;
+    border-bottom: 0.25px solid #000;
 }
 
 .dropdown-check-list{
     width: 100%;
-    border: 1px solid #000;
+    border: 0.25px solid #000;
     position: relative;
 }
 
@@ -706,7 +706,7 @@
     width: 100%;
     padding: 15px;
     list-style: none;
-    border: 1px  solid #000;
+    border: 0.25px  solid #000;
     border-top: none;
 }
 

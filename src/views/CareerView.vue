@@ -112,11 +112,11 @@ export default {
 }
 
 .accordion-item:first-child .accordion-button{
-    border-top: 1px solid #000 !important;
+    border-top: 0.25px solid #000 !important;
 }
 
 .accordion-button{
-  border-bottom: 1px solid #000 !important;
+  border-bottom: 0.25px solid #000 !important;
 }
 
 .accordion-button.collapsed{
@@ -128,7 +128,7 @@ export default {
 }
 
 .accordion-flush .accordion-item {
-    border-bottom: 1px solid #000 !important;
+    border-bottom: 0.25px solid #000 !important;
 }
 
 .accordion-button{
