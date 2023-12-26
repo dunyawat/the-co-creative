@@ -317,13 +317,13 @@
   top: 0;
   left: 0;
   width: 100%;
-  font-size: 18px;
-  line-height: 22px;
+  font-size: 14px;
+  line-height: 18px;
   color: #000;
 }
 
 .product-main.light .product-header{
-  border-bottom: 1px solid #FFF;
+  border-bottom: 0.25px solid #FFF;
 }
 
 .view-more-project img{
@@ -347,7 +347,7 @@
 }
 
 .product-header{
-    border-bottom: 1px solid #000;
+    border-bottom: 0.25px solid #000;
 }
 
 .product-detail a{
@@ -378,32 +378,32 @@
 
 .section-description{
   font-family: "freight-big-pro";
-  font-size: 50px;
-  line-height: 60px;
+  font-size: 40px;
+  line-height: 45px;
   letter-spacing: 0.25px;
   color: #000;
 }
 
 .section-name{
-  font-size: 18px;
-  line-height: 22px;
+  font-size: 14px;
+  line-height: 18px;
   color: #000;
 }
 
 .credit-header{
- line-height: 22px;
- font-size: 18px;
+ line-height: 18px;
+ font-size: 14px;
  color: #000;
 }
 
 .credit-name{
-  line-height: 22px;
-  font-size: 18px;
+ line-height: 18px;
+ font-size: 14px;
   color: #000;
 }
 .credit-position{
-   line-height: 22px;
-  font-size: 18px;
+ line-height: 18px;
+ font-size: 14px;
   color: #888888;
 }
 
@@ -419,13 +419,13 @@
 .view-more-project{
   padding-bottom: 68px;
   background-color: #F0F0F0;
-  border-top: 1px solid #000;
+  border-top: 0.25px solid #000;
 }
 
 .view-more-project-header{
-  font-size: 18px;
+  font-size: 14px;
   color: #000;
-  line-height: 22px;
+  line-height: 18px;
   padding-top: 72px;
   margin-bottom: 68px;
   text-align: center;
@@ -435,9 +435,16 @@
   padding-bottom: 100px;
 }
 
+@media (max-width: 1440.98px) { 
+  .section-description{
+    font-size: 30px;
+    line-height: 35px;
+  }
+}
+
 @media (max-width: 991.98px) { 
     .product-main{
-      font-size: 13px;
+      font-size: 14px;
     }
 
   .section-name{
@@ -464,12 +471,16 @@
   top: 0;
   left: 0;
   width: 100%;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 22px;
 }
 
+.product-detail-name{
+  font-weight: 500;
+}
+
 .product-main.light .product-header{
-  border-bottom: 1px solid #000;
+  border-bottom: 0.25px solid #000;
 }
 
 .product-main.light{
@@ -506,7 +517,7 @@
   .product-detail-info{
     padding-top: 10px;
     padding-bottom: 25px;
-    border-top: 1px solid #000;
+    border-top: 0.25px solid #000;
     font-size: 14px;
   }
 

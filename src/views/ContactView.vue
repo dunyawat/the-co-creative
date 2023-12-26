@@ -54,7 +54,7 @@ export default {
 
 <style>
 .contact-container{
-    border-bottom: 1px solid #000;
+    border-bottom: 0.25px solid #000;
 }
 
 .contact-content{
@@ -94,6 +94,14 @@ export default {
     justify-content: space-between;
 }
 
+@media (max-width: 1440.98px) { 
+
+    .contact-content{
+        font-size: 70px;
+        line-height: 105px;
+    }
+}
+
 @media (min-width: 1024px) {
   .about {
     min-height: 100vh;
@@ -103,10 +111,12 @@ export default {
 }
 
 @media (max-width: 767.98px) { 
-
+    .margin-navbar{
+        top: 72.5;
+    }
 
     .contact-page{
-        border-top: 1px solid #000;
+        border-top: 0.25px solid #000;
     }
 
     .contact-content{

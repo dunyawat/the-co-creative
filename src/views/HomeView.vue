@@ -9,7 +9,7 @@
     Our strengths is that we offer you 
     <span> one stop service </span> and we are thriving to push this industry forward.
   </div>
-  <div class="tag-container mb-5 px-4 px-md-4">
+  <div class="tag-container mb-5 mb-lg-0 px-4 px-md-4">
     <div class="row m-0">
       <div class="col-lg-4 px-0 tag-item" v-for="tag in tags" :key="tag" @click="toProject(tag.name)"> 
         {{tag.name}}
@@ -70,7 +70,7 @@
     <div class="product-card-mobile d-block d-md-none w-100 p-0">
       <div v-for="project in projects" :key="project.id" @click="toProjectDetail(project.id)">
         <img crossorigin="anonymous" :src="project.image_display" alt="">
-        <div class="d-md-flex justify-content-between project-detail">
+        <div class="d-flex justify-content-between project-detail">
             <div class="project-name">{{project.name}}</div>
             <div>
               <p class="m-0 text-end project-tag" v-for="tag in project.tag" :key="tag">
@@ -215,20 +215,21 @@ import { useRouter } from 'vue-router'
 }
 
 .project-name{
-  font-size: 20px;
+  font-size: 14px;
   font-weight: 600;
+  line-height: 18px;
   color: #000;
 }
 
 .project-tag{
-  font-size: 18px;
+  font-size: 14px;
   color: #888;
   letter-spacing:0;
-  line-height:22px
+  line-height:18px
 }
 
 .tag-item{
-  border-bottom: 1px solid black;
+  border-bottom: 0.25px solid black;
   border-collapse: collapse;
 }
 
@@ -238,21 +239,22 @@ import { useRouter } from 'vue-router'
 
 .tag-last-line{
   width: 100%;
-  height: 1px;
+  height: 0.25px;
   bottom: 0px;
   background-color: black;
   position: absolute;
 }
 
 .tag-item{
-  font-size: 18px;
-  padding: 5px 0;
+  font-size: 14px;
+  padding: 10px 0;
   cursor: pointer;
   color: #000;
+  line-height: 18px;
 }
 
 .tag-item:nth-child(1),.tag-item:nth-child(2),.tag-item:nth-child(3){
-  border-top: 1px solid black;
+  border-top: 0.25px solid black;
 }
 
 .home-detail{
@@ -268,11 +270,23 @@ import { useRouter } from 'vue-router'
 }
 
 
+
 .home-logo{
   padding-top: 100px;
   margin-bottom: 100px;
 }
 
+  @media (max-width: 1440.98px) { 
+    .home-logo{
+      padding-top: 80px;
+    }
+  }
+
+  @media (max-width: 1324.98px) {
+        #home-page .tag-container{
+          margin-top: 497px;
+        }   
+  } 
 
 
   @media (max-width: 1200.98px) { 
@@ -303,7 +317,7 @@ import { useRouter } from 'vue-router'
 
 @media (max-width: 991.98px) { 
   .tag-item:nth-child(1){
-    border-top: 1px solid black;
+    border-top: 0.25px solid black;
   }
 
   .tag-item:nth-child(2),.tag-item:nth-child(3){
@@ -333,11 +347,11 @@ import { useRouter } from 'vue-router'
     }
 
     .project-tag{
-      font-size: 14px;
+      font-size: 12px;
       margin-bottom: 5px;
     }
     .project-name {
-      font-size: 20px
+      font-size: 14px
     }
 
     .tag-container.mb-5{
@@ -348,7 +362,7 @@ import { useRouter } from 'vue-router'
       padding-top: 0;
       padding-bottom: 0;
       margin-bottom: 42px;
-      line-height: 33px;
+      line-height: 34px;
       margin-top: 20px;
       font-size: 28px;
       position: relative;

@@ -220,20 +220,21 @@ import {useStore} from 'vuex'
 }
 
 .project-name{
-  font-size: 20px;
+  font-size: 14px;
   font-weight: 600;
   color: #000;
+  line-height:18px
 }
 
 .project-tag{
-  font-size: 18px;
+  font-size: 14px;
   color: #888;
   letter-spacing:0;
-  line-height:22px
+  line-height:18px
 }
 
 .tag-item{
-  border-bottom: 1px solid black;
+  border-bottom: 0.25px solid black;
   border-collapse: collapse;
 }
 
@@ -243,21 +244,23 @@ import {useStore} from 'vuex'
 
 .tag-last-line{
   width: 100%;
-  height: 1px;
+  height: 0.25px;
   bottom: 0px;
   background-color: black;
   position: absolute;
+  
 }
 
 .tag-item{
-  font-size: 18px;
-  padding: 5px 0;
+  font-size: 14px;
+  padding: 10px 0;
   cursor: pointer;
   color: #000;
+  line-height:18px
 }
 
 .tag-item:nth-child(1),.tag-item:nth-child(2),.tag-item:nth-child(3){
-  border-top: 1px solid black;
+  border-top: 0.25px solid black;
 }
 
 .home-logo{
@@ -328,7 +331,7 @@ import {useStore} from 'vuex'
   }
 
   .project-name {
-    font-size: 18px
+    font-size: 14px
   }
 
   @media (max-width: 767.98px) { 
@@ -342,11 +345,11 @@ import {useStore} from 'vuex'
     }
 
     .project-tag{
-      font-size: 14px;
+      font-size: 12px;
       margin-bottom: 5px;
     }
     .project-name {
-      font-size: 20px
+      font-size: 14px
     }
 
     .tag-container.mb-5{

@@ -105,8 +105,8 @@ export default {
 .career-header-content{
    font-family: "freight-big-pro";
    font-weight: 300;
-   font-size: 50px;
-   line-height: 60px;
+   font-size: 40px;
+   line-height: 45px;
    letter-spacing: 0.25px;
     color: #000000;
 }
@@ -134,12 +134,12 @@ export default {
 .accordion-button{
   letter-spacing: 0px !important;
   text-transform: uppercase !important;
-  font-size: 70px !important;
+  font-size: 50px !important;
   font-weight: 300 !important;
   color: #000 !important;
   padding-top: 80px !important;
   padding-bottom: 80px !important;
-  line-height: 75px !important;
+  line-height: 105px !important;
 }
 
 .accordion-body{
@@ -154,7 +154,7 @@ export default {
 .career-item-header{
   letter-spacing: 0px;
   color: #000000;
-  font-size: 22px;
+  font-size: 14px;
   font-weight: 600;
 }
 .career-item-content{
@@ -222,6 +222,23 @@ export default {
   }
 }
 
+@media (max-width: 1440.98px) { 
+    .career-header{
+      font-size: 70px;
+      line-height: 105px;
+    }
+
+    .career-header-content{
+      font-size: 30px;
+      line-height: 35px;
+    }
+
+    .accordion-button{
+      font-size: 30px !important;
+      line-height: 35px !important;
+    }
+}
+
 @media (max-width: 991.98px) { 
   .career-header{
     margin-bottom: 26.5px;
@@ -245,7 +262,7 @@ export default {
   }
 
   .accordion-button{
-    font-size: 24px !important;
+    font-size: 20px !important;
     line-height: 28px !important;
     padding-bottom: 30px !important;
     padding-top: 30px !important;
@@ -258,6 +275,7 @@ export default {
 
   .career-item-header{
     font-size: 14px;
+    margin-bottom: 20px;
   }
 
   .career-item-content{
@@ -275,6 +293,11 @@ export default {
 
 .accordion-flush .accordion-button:not(.collapsed):hover{
   background-color: #F0F0F0;
+}
+
+.career-item-content p, .career-item-content ol,.career-item-content li{
+  font-size: 14px;
+  line-height: 18px;
 }
 
 </style>

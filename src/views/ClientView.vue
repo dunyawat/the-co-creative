@@ -216,8 +216,13 @@ export default {
           this.about_company = ''
           this.unChecked()
 
-          document.body.scrollTop = 0;
-          document.documentElement.scrollTop = 0;
+          // document.body.scrollTop = 0;
+          // document.documentElement.scrollTop = 0;
+          window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: "smooth",
+          });
       } else{
         alert('Email failed to send')
       }
@@ -259,7 +264,7 @@ input.tag-check{
   margin-left: 30px;
   letter-spacing: 0px;
   color: #000000;
-  font-size: 18px;
+  font-size: 14px;
 }
 </style>
 
@@ -270,10 +275,11 @@ input.tag-check{
   color:black;
   border-radius: 0;
   box-shadow: unset;
-  font-size: 25px;
-  line-height: 30px;
-  font-weight: 300;
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 500;
   pointer-events: none;
+  padding: 20px 0;
 }
 
 
@@ -282,11 +288,11 @@ input.tag-check{
     pointer-events: unset;
     background: black;
     color: white;
-    border: 1px solid black;
+    border: 0.25px solid black;
 }
 
 .btn.btn-inquiries-submit.checked:hover{
-  border: 1px solid black;
+  border: 0.25px solid black;
   background: white;
   color: #000;
   box-shadow: unset;
@@ -297,10 +303,10 @@ input.tag-check{
   position: absolute;
   top: 50%;
   left: 0;
-  height: 20px;
-  width: 20px;
+  height: 17px;
+  width: 17px;
   background-color: transparent;
-  border: 1px solid black;
+  border: 0.25px solid black;
   transform: translateY(-50%);
 }
 
@@ -341,20 +347,20 @@ input:checked ~ .checkmark {
 }
 
 .inquiries-address p{
-  font-size: 16px;
+  font-size: 14px;
   letter-spacing: 0px;
   color: #000000;
   text-transform: capitalize;
   margin-bottom: 15px;
-  line-height: 20px;
+  line-height: 18px;
 }
 
 .inquiries-address a{
   color: #000000;
   display: block;
-  font-size: 16px;
+  font-size: 14px;
   letter-spacing: 0px;
-  line-height: 20px;
+  line-height: 18px;
 }
 
 .inquiries-address a:hover{
@@ -364,18 +370,18 @@ input:checked ~ .checkmark {
 
 .form-control.input-inquiries{
   border: none;
-  border-bottom: 1px solid #000;
+  border-bottom: 0.25px solid #000;
   border-radius: 0;
   padding-left: 0;
   padding-right: 0;
-  font-size: 18px;
+  font-size: 14px;
   color: #000;
   margin-bottom: 30px;
   font-weight: 600;
 }
 
 textarea.form-control.input-inquiries{
-    border-right: 1px solid #000;
+    border-right: 0.25px solid #000;
 }
 
 .form-control.input-inquiries::placeholder {
@@ -397,17 +403,18 @@ textarea.form-control.input-inquiries{
 .input-inquiries-header{
   letter-spacing: 0px;
   color: #000000;
-  font-size: 22px;
-  line-height: 30px;
+  font-size: 14px;
+  line-height: 18px;
   margin-bottom: 5px;
-    font-weight: 500;
+  font-weight: 500;
+  margin-top: 40px;
 }
 
 .input-inquiries-header-muted{
   letter-spacing: 0px;
   color: #888888;
-  font-size: 22px;
-  line-height: 30px;
+  font-size: 14px;
+  line-height: 18px;
   margin-bottom: 5px;
     font-weight: 300;
 }
@@ -426,11 +433,24 @@ textarea.form-control.input-inquiries{
   }
 }
 
+@media (max-width: 1440.98px) { 
+  .inquiries-header {
+    font-size: 70px;
+    line-height: 105px;
+  }
+
+  .inquiries-content {
+    font-size: 30px;
+    line-height: 35px;
+  }
+}
+
 @media (max-width: 991.98px) { 
   .inquiries-form{
     margin-top: 62px !important;
   }
 }
+
 
 @media (max-width: 767.98px) { 
   .inquiries-header {
@@ -441,8 +461,8 @@ textarea.form-control.input-inquiries{
   }
 
   .inquiries-content{
-    font-size: 22px;
-    line-height: 25px;
+    font-size: 26px;
+    line-height: 30px;
     margin-bottom: 29px;
   }
 
@@ -458,7 +478,7 @@ textarea.form-control.input-inquiries{
 
   .inquiries-address a {
     font-size: 14px;
-   line-height: 18px;
+    line-height: 18px;
   }
 
   .form-control.input-inquiries{

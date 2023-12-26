@@ -11,13 +11,13 @@
                             <div class="col-lg-4 px-4 tag-item" v-for="tag in tags" :key="tag" @click="execute(tag.name)"> 
                                 {{tag.name}} <span>*</span>
                             </div>
-                            <div class="tag-last-line d-none d-lg-block"></div>
+                            <div class="tag-last-line d-none d-lg-none"></div>
                         </div>
                         <div class="row m-0 d-none d-lg-flex" v-else>
                             <div class="col-lg-4 px-4 tag-item" v-for="tag in tags" :key="tag" @click="toProject(tag.name)"> 
                                 {{tag.name}} <span>*</span>
                             </div>
-                            <div class="tag-last-line d-none d-lg-block"></div>
+                            <div class="tag-last-line d-none d-lg-none"></div>
                         </div>
                     </div>
                 </router-link>
@@ -178,10 +178,10 @@ export default {
     }
 
     .navbar-main{
-        border-bottom: 1px solid #000;
+        border-bottom: 0.25px solid #000;
     }
     .nav-link{
-        font-size: 18px;
+        font-size: 14px;
         letter-spacing: 0px;
         color: #000000;
         cursor: pointer;
@@ -249,7 +249,7 @@ export default {
   }
 
   .nav-link-mobile{
-      font-size: 24px;
+      font-size: 20px;
       display: block;
       color: black;
     font-weight: 400;
@@ -298,7 +298,7 @@ export default {
     }
 
     .margin-navbar{
-        height: 72.5px;
+        height: 70.5px;
         width: 100%;
     }
 
@@ -317,7 +317,7 @@ export default {
     }
 
     .tag-item{
-  border-bottom: 1px solid black;
+  border-bottom: 0.25px solid black;
   border-collapse: collapse;
 }
 
@@ -327,15 +327,15 @@ export default {
 
 .tag-last-line{
   width: 100%;
-  height: 1px;
+  height: 0.25px;
   bottom: 0px;
   background-color: black;
   position: absolute;
 }
 
 .tag-item{
-  font-size: 18px;
-  padding: 5px 0;
+  font-size: 14px;
+  padding: 10px 0;
   cursor: pointer;
   color: #000;
 }
@@ -348,7 +348,7 @@ export default {
 .project-view-tag{
     left: 0;
     background: white;
-    top: 78px;
+    top: 71px;
     z-index: 1000;
     width: 100%;
     position: absolute;

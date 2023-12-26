@@ -28,10 +28,10 @@
     </div>
     <div class="team-container px-4">
       <div class="row m-0">
-        <div class="col-md-6 p-0 team-header">TEAM</div>
-        <div class="col-md-6 p-0">
+        <div class="col-md-4 p-0 team-header">TEAM</div>
+        <div class="col-md-8 p-0">
           <div class="row justify-content-lg-end m-0">
-            <div :class="`col-6 team-detail order-${index}`" v-for="(staff,index) in staffs" :key="staff">
+            <div :class="`col-6 col-md-4 team-detail order-${index}`" v-for="(staff,index) in staffs" :key="staff">
               <img class="w-100" crossorigin="anonymous" :src="staff.image" alt="">
               <div class="team-name">{{staff.name}}</div>
               <div class="team-position">{{staff.position_1}}</div>
@@ -137,12 +137,12 @@ export default {
 .about-header-name,.header-tag,.des-tag,.team-header,.team-name,.team-position,.client-header,.client-detail{
   letter-spacing: 0px;
   color: #000000;
-  font-size: 18px;
-  line-height: 22px;
+  font-size: 14px;
+  line-height: 18px;
 }
 
 .des-tag{
-    line-height: 24px;
+    line-height: 18px;
 }
 
 .team-name{
@@ -152,23 +152,23 @@ export default {
 
 .about-header-content{
   font-family: "freight-big-pro";
-  font-size: 50px;
+  font-size: 40px;
   letter-spacing: 0.25px;
   color: #000000;
-  line-height: 60px;
+  line-height: 45px;
 }
 
 .tag-service-header{
   letter-spacing: 0px;
   color: #000000;
-  font-size: 18px;
-  line-height: 22px;
+  font-size: 14px;
+  line-height: 18px;
   margin-bottom: 25px;
 }
 
 .header-tag{
-  border-top: 1px solid #000;
-  border-bottom: 1px solid #000;
+  border-top: 0.25px solid #000;
+  border-bottom: 0.25px solid #000;
 }
 
 .header-tag.disabled{
@@ -177,7 +177,7 @@ export default {
 
 .des-tag{
   margin-top: 22px;
-  margin-bottom: 60px;
+  margin-bottom: 150px;
 }
 
 .team-container{
@@ -201,16 +201,23 @@ export default {
 }
 
 .client-detail{
-  border-bottom: 1px solid #000;
+  border-bottom: 0.25px solid #000;
 }
 
 #client-container{
-  border-top: 1px solid #000;
+  border-top: 0.25px solid #000;
 }
 
 .client-detail.disabled{
   color: transparent;
 }
+@media (max-width: 1440.98px) {
+  .about-header-content{
+    font-size: 30px;
+    line-height: 35px;
+  }
+}
+
 @media (min-width: 1024px) {
   .about {
     min-height: 100vh;
@@ -305,7 +312,7 @@ export default {
   }
 
   .client-detail:first-child{
-    border-top: 1px solid #000;
+    border-top: 0.25px solid #000;
   }
 
   .client-detail{
@@ -321,6 +328,19 @@ export default {
 
 .client-detail{
   cursor: pointer;
+}
+
+
+@media (max-width: 991.98px){
+  .team-name {
+    font-size: 12px;
+    line-height: 16px;
+  }
+
+  .team-position {
+        font-size: 12px;
+    line-height: 16px;
+  }
 }
 
 
