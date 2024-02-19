@@ -502,7 +502,7 @@ textarea.form-control.input-inquiries{
     margin-bottom: 10px;
   }
   .btn.btn-inquiries-submit{
-    font-size: 20px;
+    font-size: 14px;
     padding: 20px;
   }
 }

@@ -1,7 +1,8 @@
 <template>
     <div>
         <div class="footer-logo">
-            <img src="@/assets/images/logo-big.png" width="292" height="27" alt="logo">
+            <img class="d-none d-md-block" src="@/assets/images/logo-big.png" width="292" height="27" alt="logo">
+            <img class="d-block d-md-none" src="@/assets/images/logo-big.png" width="176" height="17" alt="">
         </div>
         <div class="px-4 footer-content">
             <div class="row m-0">
@@ -64,6 +65,8 @@ export default {
         border-bottom: 0.25px solid #000;
         padding: 30px 0;
         text-align: center;
+        display: flex;
+        justify-content: center;
     }
 
     .footer-content{

@@ -235,7 +235,7 @@ export default {
       top: 72.5px;
       background: white;
       width: 100%;
-      height: calc(100vh - 84.5px);
+      height: calc(100vh - 72.5px);
       opacity: 0;
       z-index: -1;
       transition: all .5s ease;
@@ -263,6 +263,12 @@ export default {
   
   }
 
+
+    .margin-navbar{
+        height: 70.5px;
+        width: 100%;
+    }
+
     @media screen and (max-width: 768px) {
         .navbar-main{
             display: none;
@@ -277,6 +283,13 @@ export default {
             height: 40px;
             margin-bottom: 20px;
         }
+
+
+        .margin-navbar{
+            height: 72.5px;
+            width: 100%;
+        }
+
     }
 
     .navbar-main{
@@ -295,11 +308,6 @@ export default {
         width: 100%;
         background-color: white;
         z-index: 10000;
-    }
-
-    .margin-navbar{
-        height: 70.5px;
-        width: 100%;
     }
 
     .nav-link:hover, .nav-link:focus {

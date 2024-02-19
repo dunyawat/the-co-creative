@@ -116,6 +116,7 @@ export default {
     }
 
     .contact-page{
+        position: sticky;
         border-top: 0.25px solid #000;
     }
 

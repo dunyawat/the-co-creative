@@ -9,15 +9,15 @@
           <div class="row m-0">
             <div class="col-lg-4 col-md-3 p-0"></div>
             <div class="col-lg-4 col-md-3  p-0"></div>
-            <div class="col-lg-2 col-md-3 p-0">(INFO)</div>
-            <div class="col-lg-2 col-md-3 p-0">(SERVICES)</div>
+            <div class="col-lg-2 col-md-3 p-0 ps-2">(INFO)</div>
+            <div class="col-lg-2 col-md-3 p-0 ps-2">(SERVICES)</div>
           </div>
         </div>
         <div class="px-4 py-2 product-detail d-none d-md-block">
           <div class="row m-0">
             <div class="col-lg-4 col-md-3  p-0">{{project ? project.name : ''}}</div>
-            <div class="col-lg-4 col-md-3  p-0">{{project ? project.description : ''}}</div>
-            <div class="col-lg-2 col-md-3  p-0">
+            <div class="col-lg-4 col-md-3  p-0 ps-1">{{project ? project.description : ''}}</div>
+            <div class="col-lg-2 col-md-3  p-0 ps-2">
               <div class="mb-2">{{project ? project.info : ''}}</div>
               <div v-if="project">
                 <div v-if="project.link.length">
@@ -27,7 +27,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-2 col-md-3 p-0">
+            <div class="col-lg-2 col-md-3 p-0 ps-2">
               <div v-if="project">
                 <div v-if="project.tag.length">
                   <div v-for="tag in project.tag" :key="tag">
@@ -223,19 +223,20 @@
           },
           async sortMatch(){
             function dynamicSort(property) {
-    var sortOrder = 1;
-    if(property[0] === "-") {
-        sortOrder = -1;
-        property = property.substr(1);
-    }
-    return function (a,b) {
-        /* next line works with strings and numbers, 
-         * and you may want to customize it to your needs
-         */
-        var result = (a[property] < b[property]) ? -1 : (a[property] > b[property]) ? 1 : 0;
-        return result * sortOrder;
-    }
-}           let test 
+            var sortOrder = 1;
+            if(property[0] === "-") {
+                sortOrder = -1;
+                property = property.substr(1);
+            }
+              return function (a,b) {
+                  /* next line works with strings and numbers, 
+                    * and you may want to customize it to your needs
+                    */
+                  var result = (a[property] < b[property]) ? -1 : (a[property] > b[property]) ? 1 : 0;
+                  return result * sortOrder;
+              }
+            }           
+            let test 
             
             this.matchProject.forEach((project,index) => {
               if(project.id == this.project.id){
@@ -252,6 +253,8 @@
             } else{
               this.store.commit(ADD_MATCH_PROJECT,null)
             }
+
+            this.showRecent = false
           },
           async toProjectDetail(projectId){
             this.router.push({name:'ProjectDetailViewUrl',params:{id:projectId}})
@@ -519,6 +522,7 @@
     padding-bottom: 25px;
     border-top: 0.25px solid #000;
     font-size: 14px;
+    position: sticky;
   }
 
   .product-detail-info a{

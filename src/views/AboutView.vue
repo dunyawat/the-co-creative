@@ -344,4 +344,8 @@ export default {
 }
 
 
+#tag-about{
+  position: relative;
+}
+
 </style>

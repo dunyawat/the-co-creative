@@ -193,9 +193,14 @@ export default {
 
 @media (max-width: 767.98px) { 
   .accordion-header::after{
-      width: 40px !important;
-      height: 20px  !important;;
+      width: 30px !important;
+      height: 15px  !important;;
     }
+}
+
+.accordion-item:last-of-type .accordion-button.collapsed {
+    border-bottom-right-radius: 0 !important;
+    border-bottom-left-radius:0 !important;
 }
 
 
@@ -299,5 +304,8 @@ export default {
   font-size: 14px;
   line-height: 18px;
 }
+
+
+
 
 </style>

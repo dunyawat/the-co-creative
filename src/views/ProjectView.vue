@@ -287,6 +287,7 @@ import {useStore} from 'vuex'
   justify-content: space-between;
   cursor: pointer;
   margin-top: 40px;
+  position: relative;
 }
 
 .product-card{
@@ -362,4 +363,20 @@ import {useStore} from 'vuex'
     }
   }
 }
+</style>
+
+
+<style scoped>
+  @media (max-width: 991.98px) { 
+    .project-list-view .product-card{
+      display: block !important;
+    }
+
+        .project-detail{
+      margin-top: 16px;
+      margin-bottom: 30px;
+    }
+  }
+
+
 </style>
