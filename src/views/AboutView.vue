@@ -31,7 +31,7 @@
         <div class="col-md-4 p-0 team-header">TEAM</div>
         <div class="col-md-8 p-0">
           <div class="row justify-content-lg-end m-0">
-            <div :class="`col-6 col-md-4 team-detail order-${index}`" v-for="(staff,index) in staffs" :key="staff">
+            <div :class="`col-6 col-md-4 team-detail orders-${index}`" v-for="(staff,index) in staffs" :key="staff">
               <img class="w-100" crossorigin="anonymous" :src="staff.image" alt="">
               <div class="team-name">{{staff.name}}</div>
               <div class="team-position">{{staff.position_1}}</div>
