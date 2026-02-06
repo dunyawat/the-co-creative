@@ -15,10 +15,11 @@
     "@fortawesome/free-regular-svg-icons": "^6.4.0",
     "@fortawesome/free-solid-svg-icons": "^6.4.0",
     "axios": "^1.4.0",
+    "mdb-vue-ui-kit": "./local_modules/mdb5-vue-ui-kit-pro-essential-2.0.0.tar.gz",
     "vue": "^3.3.4",
     "vue-router": "^4.2.0",
-    "vuex": "^4.1.0",
-    "mdb-vue-ui-kit": "./local_modules/mdb5-vue-ui-kit-pro-essential-2.0.0.tar.gz"
+    "vuedraggable": "^4.1.0",
+    "vuex": "^4.1.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.2.3",

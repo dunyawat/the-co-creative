@@ -1,6 +1,6 @@
 <template>
   <div v-if="loading" class="loading">
-    <img src="@/assets/images/loading.gif" alt="loading">
+    <img src="@/assets/images/loading-1.gif" alt="loading">
   </div>
   <RouterView />
 </template>

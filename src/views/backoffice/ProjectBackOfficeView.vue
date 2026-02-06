@@ -20,20 +20,38 @@
                 </div>
             </div>
         </div>
-        <div class="b-content mt-2">
-            <div v-for="project in projects" :key="project.id" class="row m-0 py-2">
-                 <div class="col-3 ps-3 d-flex align-items-center">
-                    {{project.name}}
-                </div>
-                <div class="col-6 ps-3 d-flex align-items-center">
-                    <span class="cut-line-1">{{project.info}}</span>
-                </div>
-                <div class="col-3 ps-3">
-                    <button class="btn btn-edit" @click="()=>addProject(project.id)">EDIT</button>
-                    <button class="btn btn-delete" @click="()=>{modalContent=project,projectDeleteModal=true}">Delete</button>
-                </div>
-            </div>
+      <div class="b-content mt-2">
+  <Draggable
+    v-model="localProjects"
+    item-key="id"
+    handle=".drag-handle"
+    @end="onDragEnd"
+  >
+    <template #item="{ element: project }">
+      <div class="row m-0 py-2 align-items-center">
+        <div class="col-3 ps-3 d-flex align-items-center">
+          <span class="drag-handle me-2">☰</span>
+          {{ project.name }}
         </div>
+
+        <div class="col-6 ps-3 d-flex align-items-center">
+          <span class="cut-line-1">{{ project.info }}</span>
+        </div>
+
+        <div class="col-3 ps-3">
+          <button class="btn btn-edit" @click="addProject(project.id)">EDIT</button>
+          <button
+            class="btn btn-delete"
+            @click="()=>{modalContent=project,projectDeleteModal=true}"
+          >
+            Delete
+          </button>
+        </div>
+      </div>
+    </template>
+  </Draggable>
+</div>
+
     </div>
       <MDBModal
         id="projectDeleteModal"
@@ -53,12 +71,14 @@
 
 <script>
     import NavbarBackOffice from '@/components/backoffice/NavbarBackOffice.vue'
-    import { ref, computed } from 'vue';
+    import { ref, computed, watch } from 'vue';
     import { MDBIcon, MDBModal,
     MDBModalBody,
     MDBBtn, } from 'mdb-vue-ui-kit';
     import {useStore} from 'vuex'
     import { PUSH_PROJECTS,GETTER_PROJECTS,DELETE_PROJECT,CLEAR_STATE_PROJECT,TRIGGER_LOADING} from '@/store/constants'
+    import Draggable from "vuedraggable";
+    import reorderProject from "@/api/project/reorderProject";
     export default {
         name: 'ProjectBackOfficeView',
         components:{
@@ -67,17 +87,39 @@
             MDBModal,
             MDBModalBody,
             MDBBtn,
+            Draggable
         },
         setup(){
             const token = localStorage.getItem("token")
             const store = useStore()
             const projects = computed(()=> store.getters[GETTER_PROJECTS])
             const projectDeleteModal = ref(false);
+            const localProjects = ref([]);
+            watch(
+                projects,
+                (val) => {
+                    localProjects.value = [...val].sort(
+                    (a, b) => a.sortOrder - b.sortOrder
+                    );
+                },
+                { immediate: true }
+            );
+
+            const onDragEnd = async () => {
+                const payload = localProjects.value.map((p, index) => ({
+                    id: p.id,
+                    sortOrder: index
+                }));
+
+                 await reorderProject(payload);
+            };
             return {
                 token,
                 projects,
-                store,
+                localProjects,
                 projectDeleteModal,
+                onDragEnd,
+                store
             }
         },
         async mounted(){
