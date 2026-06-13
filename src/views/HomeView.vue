@@ -373,18 +373,9 @@ import { useRouter } from 'vue-router'
     }
     
 
-    #home-page .tag-item{
-      border-bottom-width: 0.5px;
+    .tag-item{
       font-size: 14px;
       padding: 8.5px 0;
-    }
-
-    #home-page .tag-item:nth-child(1){
-      border-top-width: 0.5px;
-    }
-
-    #home-page .tag-last-line{
-      display: none;
     }
   }
 }
