@@ -373,9 +373,45 @@ import { useRouter } from 'vue-router'
     }
     
 
-    .tag-item{
+    #home-page > .tag-container .tag-item{
+      border-bottom: 0;
       font-size: 14px;
       padding: 8.5px 0;
+      position: relative;
+    }
+
+    #home-page > .tag-container .tag-item::after{
+      content: "";
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      height: 1px;
+      background: #000;
+      pointer-events: none;
+      transform: scaleY(.5);
+      transform-origin: bottom;
+    }
+
+    #home-page > .tag-container .tag-item:nth-child(1){
+      border-top: 0;
+    }
+
+    #home-page > .tag-container .tag-item:nth-child(1)::before{
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      height: 1px;
+      background: #000;
+      pointer-events: none;
+      transform: scaleY(.5);
+      transform-origin: top;
+    }
+
+    #home-page > .tag-container .tag-last-line{
+      display: none;
     }
   }
 }
