@@ -1,21 +1,22 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import BackofficeView from '../views/BackofficeView.vue'
-import LoginView from '../views/LoginView.vue'
-import ProjectBackOfficeView from '../views/backoffice/ProjectBackOfficeView.vue'
-import ProjectManagementView from '../views/backoffice/ProjectManagementView.vue'
-import CareerBackOfficeView from '../views/backoffice/CareerBackOfficeView.vue'
-import CareerManagementView from '../views/backoffice/CareerManagementView.vue'
-import StaffBackOfficeView from '../views/backoffice/StaffBackOfficeView.vue'
-import StaffManagementView from '../views/backoffice/StaffManagementView.vue'
-import TagBackOfficeView from '../views/backoffice/TagBackOfficeView.vue'
-import TagManagementView from '../views/backoffice/TagManagementView.vue'
-import AboutView from '../views/AboutView.vue'
-import CareerView from '../views/CareerView.vue'
-import ClientView from '../views/ClientView.vue'
-import ProjectView from '../views/ProjectView.vue'
-import ProjectDetailView from '../views/ProjectDetailView.vue'
-import ContactView from '../views/ContactView.vue'
+
+const BackofficeView = () => import('../views/BackofficeView.vue')
+const LoginView = () => import('../views/LoginView.vue')
+const ProjectBackOfficeView = () => import('../views/backoffice/ProjectBackOfficeView.vue')
+const ProjectManagementView = () => import('../views/backoffice/ProjectManagementView.vue')
+const CareerBackOfficeView = () => import('../views/backoffice/CareerBackOfficeView.vue')
+const CareerManagementView = () => import('../views/backoffice/CareerManagementView.vue')
+const StaffBackOfficeView = () => import('../views/backoffice/StaffBackOfficeView.vue')
+const StaffManagementView = () => import('../views/backoffice/StaffManagementView.vue')
+const TagBackOfficeView = () => import('../views/backoffice/TagBackOfficeView.vue')
+const TagManagementView = () => import('../views/backoffice/TagManagementView.vue')
+const AboutView = () => import('../views/AboutView.vue')
+const CareerView = () => import('../views/CareerView.vue')
+const ClientView = () => import('../views/ClientView.vue')
+const ProjectView = () => import('../views/ProjectView.vue')
+const ProjectDetailView = () => import('../views/ProjectDetailView.vue')
+const ContactView = () => import('../views/ContactView.vue')
 
 const router = createRouter({
   

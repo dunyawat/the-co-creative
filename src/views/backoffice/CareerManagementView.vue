@@ -60,8 +60,10 @@
 </template>
 
 <script>
+    import 'mdb-vue-ui-kit/css/mdb.min.css';
     import NavbarBackOffice from '@/components/backoffice/NavbarBackOffice.vue'
     import { ref } from 'vue';
+    import CKEditor from '@ckeditor/ckeditor5-vue';
     import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
     import addCareer from '@/api/career/addCareer.js'
     import getCareer from '@/api/career/getCareer.js'
@@ -75,6 +77,7 @@
             NavbarBackOffice,
             MDBInput,
             MDBFile,
+            ckeditor: CKEditor.component,
         },
             setup(){
                 const store = useStore()

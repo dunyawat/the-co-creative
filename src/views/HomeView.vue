@@ -28,7 +28,7 @@
     <div class="product-card d-none col-lg-4 p-0 pe-lg-2 d-md-grid">
       <div v-for="project in productElementOne" :key="project.id" @click="toProjectDetail(project.id)">
         <div>
-          <img crossorigin="anonymous" :src="project.image_display" alt="">
+          <img crossorigin="anonymous" loading="lazy" decoding="async" :src="project.image_display" alt="">
           <div class="d-flex justify-content-between project-detail">
             <div class="project-name">{{project.name}}</div>
             <div>
@@ -42,7 +42,7 @@
     </div>
      <div class="product-card col-lg-4 p-0 ps-lg-1 pe-lg-1 d-none d-md-grid">
       <div v-for="project in productElementTwo" :key="project.id" @click="toProjectDetail(project.id)">
-        <img crossorigin="anonymous" :src="project.image_display" alt="">
+        <img crossorigin="anonymous" loading="lazy" decoding="async" :src="project.image_display" alt="">
         <div class="d-flex justify-content-between project-detail">
             <div class="project-name">{{project.name}}</div>
             <div>
@@ -55,7 +55,7 @@
     </div>
      <div class="product-card d-none d-md-grid col-lg-4 p-0 ps-lg-2">
       <div v-for="project in productElementThree" :key="project.id" @click="toProjectDetail(project.id)">
-        <img crossorigin="anonymous" :src="project.image_display" alt="">
+        <img crossorigin="anonymous" loading="lazy" decoding="async" :src="project.image_display" alt="">
         <div class="d-flex justify-content-between project-detail">
             <div class="project-name">{{project.name}}</div>
             <div>
@@ -69,7 +69,7 @@
 
     <div class="product-card-mobile d-block d-md-none w-100 p-0">
       <div v-for="project in projects" :key="project.id" @click="toProjectDetail(project.id)">
-        <img crossorigin="anonymous" :src="project.image_display" alt="">
+        <img crossorigin="anonymous" loading="lazy" decoding="async" :src="project.image_display" alt="">
         <div class="d-flex justify-content-between project-detail">
             <div class="project-name">{{project.name}}</div>
             <div>
@@ -126,8 +126,10 @@ import { useRouter } from 'vue-router'
         },
           async mounted(){
             await this.store.commit(TRIGGER_LOADING,true)
-            await this.store.dispatch(PUSH_TAGS)
-            await this.store.dispatch(PUSH_PROJECTS)
+            await Promise.all([
+              this.store.dispatch(PUSH_TAGS),
+              this.store.dispatch(PUSH_PROJECTS)
+            ])
             await this.store.commit(TRIGGER_LOADING,false)
             this.addProductToElement()
         },

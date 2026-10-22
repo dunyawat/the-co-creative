@@ -50,6 +50,7 @@
 </template>
 
 <script>
+import 'mdb-vue-ui-kit/css/mdb.min.css';
 import Navbar from '@/components/navbar/Navbar.vue'
 import Footer from '@/components/footer/Footer.vue'
 import { MDBAccordion, MDBAccordionItem } from "mdb-vue-ui-kit";

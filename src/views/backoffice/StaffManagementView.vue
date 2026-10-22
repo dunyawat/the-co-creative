@@ -94,6 +94,7 @@
 </template>
 
 <script>
+    import 'mdb-vue-ui-kit/css/mdb.min.css';
     import { ref } from 'vue';
     import getStaff from '@/api/staff/getStaff.js'
     import addStaff from '@/api/staff/addStaff.js'

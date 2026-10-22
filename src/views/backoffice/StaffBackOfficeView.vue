@@ -61,6 +61,7 @@
 </template>
 
 <script>
+    import 'mdb-vue-ui-kit/css/mdb.min.css';
     import NavbarBackOffice from '@/components/backoffice/NavbarBackOffice.vue'
     import { ref, computed } from 'vue';
       import { MDBIcon, MDBModal,

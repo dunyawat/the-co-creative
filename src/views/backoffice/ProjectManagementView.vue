@@ -238,6 +238,7 @@
 </template>
 
 <script>
+    import 'mdb-vue-ui-kit/css/mdb.min.css';
     import { ref, computed } from 'vue';
     import addProject from '@/api/project/addProject.js'
     import updateProject from '@/api/project/updateProject.js'

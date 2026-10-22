@@ -53,6 +53,7 @@
  
 </template>
 <script>
+    import 'mdb-vue-ui-kit/css/mdb.min.css';
     import { ref } from 'vue';
     import getTag from '@/api/tag/getTag.js'
     import addTag from '@/api/tag/addTag.js'
