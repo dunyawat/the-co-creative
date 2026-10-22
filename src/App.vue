@@ -19,6 +19,11 @@
     justify-content: center;
     z-index: 5;
   }
+
+  .loading img{
+    width: 50px;
+    height: 50px;
+  }
 </style>
 
 <script>
