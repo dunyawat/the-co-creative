@@ -28,7 +28,7 @@
     <div class="product-card d-none col-lg-4 p-0 pe-lg-2 d-md-grid">
       <div v-for="project in productElementOne" :key="project.id" @click="toProjectDetail(project.id)">
         <div>
-          <img crossorigin="anonymous" loading="lazy" decoding="async" :src="project.image_display" alt="">
+          <img crossorigin="anonymous" :src="project.image_display" alt="">
           <div class="d-flex justify-content-between project-detail">
             <div class="project-name">{{project.name}}</div>
             <div>
@@ -42,7 +42,7 @@
     </div>
      <div class="product-card col-lg-4 p-0 ps-lg-1 pe-lg-1 d-none d-md-grid">
       <div v-for="project in productElementTwo" :key="project.id" @click="toProjectDetail(project.id)">
-        <img crossorigin="anonymous" loading="lazy" decoding="async" :src="project.image_display" alt="">
+        <img crossorigin="anonymous" :src="project.image_display" alt="">
         <div class="d-flex justify-content-between project-detail">
             <div class="project-name">{{project.name}}</div>
             <div>
@@ -55,7 +55,7 @@
     </div>
      <div class="product-card d-none d-md-grid col-lg-4 p-0 ps-lg-2">
       <div v-for="project in productElementThree" :key="project.id" @click="toProjectDetail(project.id)">
-        <img crossorigin="anonymous" loading="lazy" decoding="async" :src="project.image_display" alt="">
+        <img crossorigin="anonymous" :src="project.image_display" alt="">
         <div class="d-flex justify-content-between project-detail">
             <div class="project-name">{{project.name}}</div>
             <div>
@@ -69,7 +69,7 @@
 
     <div class="product-card-mobile d-block d-md-none w-100 p-0">
       <div v-for="project in projects" :key="project.id" @click="toProjectDetail(project.id)">
-        <img crossorigin="anonymous" loading="lazy" decoding="async" :src="project.image_display" alt="">
+        <img crossorigin="anonymous" :src="project.image_display" alt="">
         <div class="d-flex justify-content-between project-detail">
             <div class="project-name">{{project.name}}</div>
             <div>
@@ -179,11 +179,15 @@ import { useRouter } from 'vue-router'
   color: black !important;
 }
 
-.project-list-view{
+.project-list-view.row{
   grid-column-gap: 24px;
   align-items: start;
   display: grid;
   grid-template-columns: repeat(3,minmax(0,1fr));
+}
+
+.project-list-view > .product-card{
+  width: 100%;
 }
 
 .project-list-view img{
