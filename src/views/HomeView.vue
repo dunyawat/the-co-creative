@@ -180,7 +180,7 @@ import { useRouter } from 'vue-router'
 }
 
 .project-list-view.row{
-  grid-column-gap: 24px;
+  column-gap: 0;
   align-items: start;
   display: grid;
   grid-template-columns: repeat(3,minmax(0,1fr));
